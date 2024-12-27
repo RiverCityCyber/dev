@@ -1,6 +1,33 @@
 :root {
     font-size: 18px;
-    font-family: 'Times New Roman', Times, serif
+    font-family: "Times New Roman", Times, serif;
+}
+
+body.dark-mode {
+    /* Include a Lightbulb icon, thatd be cool */
+    --bkgr-c: rgb(30, 30, 30);
+    --bkgr-c-2: rgb(75, 75, 80);
+    --h1-c: green;
+    --h2-c-1: blue;
+    --h2-c-2: rgb(80, 80, 194);
+    --h2-c-3: rgb(255, 0, 221);
+    --ptxt-c: white;
+    --inpt-txt-c: rgb(82, 82, 82);
+    --a-c: rgb(0, 70, 151);
+    --a-c-visited: rgb(103, 0, 151);
+}
+
+body.light-mode {
+    --bkgr-c: rgb(139, 205, 255);
+    --bkgr-c-2: rgb(191, 191, 232);
+    --h1-c: green;
+    --h2-c-1: blue;
+    --h2-c-2: navy;
+    --h2-c-3: rgb(255, 0, 221);
+    --ptxt-c: rgb(0, 0, 0);
+    --inpt-txt-c: rgb(240, 240, 255);
+    --a-c: rgb(0, 70, 151);
+    --a-c-visited: rgb(103, 0, 151);
 }
 
 h1 {
@@ -13,4 +40,6 @@ h1 {
 
 .center {
     text-align: center;
+    background-color: var(--bkgr-c);
+    color: var(--ptxt-c)
 }
