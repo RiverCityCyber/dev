@@ -12,4 +12,4 @@ currently being supported with security updates.
 ## Reporting a Vulnerability
 
 To report a vulnerability, please email admin@rivercitycyber.com
-Use the header "Webpage Vulnerability"
+using the header "Webpage Vulnerability"
