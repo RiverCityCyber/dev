@@ -7,7 +7,7 @@ body.dark-mode {
     /* Include a Lightbulb icon, thatd be cool */
     --bkgr-c: rgb(30, 30, 30);
     --bkgr-c-2: rgb(75, 75, 80);
-    --bkgr-img: url('../images/mountainLake.jpg');
+    --bkgr-img: url('/images/mountainLake.jpg');
     --ptxt-c: white;
     --inpt-txt-c: rgb(82, 82, 82);
     --a-c: rgb(0, 70, 151);
@@ -17,7 +17,7 @@ body.dark-mode {
 body.light-mode {
     --bkgr-c: rgb(139, 205, 255);
     --bkgr-c-2: rgb(191, 191, 232);
-    --bkgr-img: url('../images/mountainLake.jpg');
+    --bkgr-img: url('/images/mountainLake.jpg');
     --ptxt-c: rgb(0, 0, 0);
     --inpt-txt-c: rgb(240, 240, 255);
     --a-c: rgb(0, 70, 151);
