@@ -1,10 +1,16 @@
 :root {
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Times New Roman', Times, serif
 }
 
 h1 {
     font-family: 'Charm', serif;
+    font-size: 48px;
     font-weight: 700;
     font-style: normal;
+    text-align: center;
+}
+
+.center {
+    text-align: center;
 }
