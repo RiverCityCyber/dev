@@ -15,7 +15,7 @@ body.dark-mode {
 }
 
 body.light-mode {
-    --bkgr-c: rgb(139, 205, 255);
+    --bkgr-c: rgb(200, 225, 245);
     --bkgr-c-2: rgb(191, 191, 232);
     --bkgr-img: url('../images/mountainlake.jpg');
     --ptxt-c: rgb(0, 0, 0);
