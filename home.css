@@ -8,7 +8,7 @@ body.dark-mode {
     /* Include a Lightbulb icon, thatd be cool */
     --bkgr-c: rgb(30, 30, 30);
     --bkgr-c-2: rgb(75, 75, 80);
-    --narbr-c: rgb(50, 50, 50);
+    --narbr-c: rgb(40, 145, 35);
     --ptxt-c: rgb(255, 255, 255);
     --inpt-txt-c: rgb(82, 82, 82);
     --a-c: rgb(0, 70, 151);
@@ -18,7 +18,7 @@ body.dark-mode {
 body.light-mode {
     --bkgr-c: rgb(200, 225, 245);
     --bkgr-c-2: rgb(191, 191, 232);
-    --narbr-c: rgb(50, 50, 50);
+    --narbr-c: rgb(45, 170, 40);
     --ptxt-c: rgb(0, 0, 0);
     --inpt-txt-c: rgb(240, 240, 255);
     --a-c: rgb(0, 70, 151);
@@ -68,7 +68,7 @@ h1 {
     font-size: 16px;
     border: none;
     outline: none;
-    color: white;
+    color: var(--ptxt-c);
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
@@ -80,7 +80,7 @@ h1 {
 /* Add a red background color to navbar links on hover */
 .navbar a:hover,
 .dropdown:hover .dropbtn {
-    background-color: red;
+    background-color: var(--narbr-c);
 }
 
 /* Dropdown content (hidden by default) */
