@@ -1,7 +1,7 @@
 :root {
     font-size: 18px;
     font-family: "Times New Roman", Times, serif;
-    --bkgr-img: url('../images/mountainlake.jpg');
+    /*    --bkgr-img: url('../images/mountainlake.jpg');*/
 }
 
 body.dark-mode {
@@ -42,6 +42,11 @@ h1 {
     color: var(--ptxt-c);
 }
 
+.projects {
+    text-align: center;
+    color: var(--ptxt-c);
+}
+
 .navbar {
     overflow: hidden;
     background-color: var(--bkgr-c-2);
@@ -77,7 +82,7 @@ h1 {
     /* Important for vertical align on mobile phones */
 }
 
-/* Add a red background color to navbar links on hover */
+/* Highlight color when hovering over choice*/
 .navbar a:hover,
 .dropdown:hover .dropbtn {
     background-color: var(--narbr-c);
