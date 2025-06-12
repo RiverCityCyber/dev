@@ -1,14 +1,15 @@
 :root {
     font-size: 18px;
     font-family: "Times New Roman", Times, serif;
+    --bkgr-img: url('../images/mountainlake.jpg');
 }
 
 body.dark-mode {
     /* Include a Lightbulb icon, thatd be cool */
     --bkgr-c: rgb(30, 30, 30);
     --bkgr-c-2: rgb(75, 75, 80);
-    --bkgr-img: url('../images/mountainlake.jpg');
-    --ptxt-c: white;
+    --narbr-c: rgb(50, 50, 50);
+    --ptxt-c: rgb(255, 255, 255);
     --inpt-txt-c: rgb(82, 82, 82);
     --a-c: rgb(0, 70, 151);
     --a-c-visited: rgb(103, 0, 151);
@@ -17,7 +18,7 @@ body.dark-mode {
 body.light-mode {
     --bkgr-c: rgb(200, 225, 245);
     --bkgr-c-2: rgb(191, 191, 232);
-    --bkgr-img: url('../images/mountainlake.jpg');
+    --narbr-c: rgb(50, 50, 50);
     --ptxt-c: rgb(0, 0, 0);
     --inpt-txt-c: rgb(240, 240, 255);
     --a-c: rgb(0, 70, 151);
@@ -50,7 +51,7 @@ h1 {
 .navbar a {
     float: left;
     font-size: 16px;
-    color: white;
+    color: var(--ptxt-c);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
