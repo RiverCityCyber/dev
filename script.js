@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (selectedMode === 'dark') {
             document.body.classList.add('dark-mode');
             document.body.classList.remove('light-mode');
-            toggle.textContent = 'Light Mode';
+            toggle.textContent = '☀️';
         } else {
             document.body.classList.add('light-mode');
             document.body.classList.remove('dark-mode');
-            toggle.textContent = 'Dark Mode';
+            toggle.textContent = '🌙';
         }
         mode = selectedMode;
         localStorage.mode = selectedMode;

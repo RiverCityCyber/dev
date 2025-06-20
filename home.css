@@ -50,9 +50,21 @@ h1 {
     color: var(--ptxt-c);
 }
 
+.drk-mode-btn {
+    color: var(--ptxt-c);
+    border: none;
+    padding: 0px 10px;
+    cursor: pointer;
+    font-size: 20px;
+    background: none;
+    margin-left: auto;
+}
+
 .navbar {
     overflow: hidden;
     background-color: var(--bkgr-c-2);
+    display: flex;
+    align-items: left;
 }
 
 /* Links inside the navbar */
@@ -80,15 +92,13 @@ h1 {
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
-    /* Important for vertical align on mobile phones */
     margin: 0;
-    /* Important for vertical align on mobile phones */
 }
 
 /* Highlight color when hovering over choice*/
-.navbar a:hover,
 .dropdown:hover .dropbtn {
     background-color: var(--navbar-c);
+    cursor: pointer;
 }
 
 /* Dropdown content (hidden by default) */
