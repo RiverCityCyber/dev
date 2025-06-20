@@ -36,13 +36,20 @@ h1 {
     color: var(--title-txt-c);
 }
 
-.center {
+.center,
+p {
     text-align: center;
     background-color: var(--bkgr-c);
     background-image: var(--bkgr-img);
     background-repeat: no-repeat;
     background-size: cover;
     color: var(--ptxt-c);
+}
+
+p {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .projects {
