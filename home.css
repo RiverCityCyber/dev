@@ -13,24 +13,27 @@ body.dark-mode {
     --inpt-txt-c: rgb(82, 82, 82);
     --a-c: rgb(0, 70, 151);
     --a-c-visited: rgb(103, 0, 151);
+    --title-txt-c: rgb(0, 95, 5);
 }
 
 body.light-mode {
-    --bkgr-c: rgb(255, 245, 215);
+    --bkgr-c: rgb(255, 250, 235);
     --bkgr-c-2: rgb(191, 191, 232);
     --navbar-c: rgb(45, 170, 40);
     --ptxt-c: rgb(0, 0, 0);
     --inpt-txt-c: rgb(240, 240, 255);
     --a-c: rgb(0, 70, 151);
     --a-c-visited: rgb(103, 0, 151);
+    --title-txt-c: rgb(0, 95, 5);
 }
 
 h1 {
-    font-family: 'Charm', serif;
+    font-family: 'Limelight', sans-serif;
     font-size: 48px;
     font-weight: 700;
     font-style: normal;
     text-align: center;
+    color: var(--title-txt-c);
 }
 
 .center {
