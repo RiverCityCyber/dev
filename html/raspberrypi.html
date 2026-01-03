@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Raspberry Pi Car Diagnostics System</title>
+    <script src="../script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Limelight&display=swap">
+    <link rel="stylesheet" href="../home.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="outreach.html">Contact Me</a>
+        <div class="dropdown">
+            <button id="whoami" class="dropbtn" onclick="window.location.href='projects.html'">projects</button>
+            <div class="dropdown-content">
+                <a href="#raspberrypi.html">Raspberry Pi CAN-Bus System</a>
+            </div>
+        </div>
+        <a href="projects.html">Projects</a>
+        <div class="dropdown">
+            <button id="whoami" class="dropbtn" onclick="window.location.href='bio.html'">whoami</button>
+            <div class="dropdown-content">
+                <a href="#about.html">About</a>
+                <a href="#blog.html">Blog</a>
+                <a href="#gallery.html">Gallery</a>
+            </div>
+        </div>
+        <button id="dm-toggle" class="drk-mode-btn">🌙</button>
+    </div>
+    <h1>Raspberry Pi CAN-Bus & Dash-Cam System</h1>
+    <div>
+        <h2>CAN-Bus Reader v1</h2>
+        <p>I am currently working on my initial itteration of a micro-computer that I can
+            connect to my car's internal CAM-Bus system to record diagnostics. It will also
+            have a USB webcam attached to work as a dash-cam, storing video on the onboard
+            MicroSD card. While such strenuous read-writes to a MicroSD card are not advised,
+            this is just the initial prototype. After the code works, I will be upgrading to
+            a Raspberry Pi 5, for the ability to use M.2 SSDs for video storage and MicroSD
+            for the OS.
+        </p>
+    </div>
+</body>
+
+</html>
