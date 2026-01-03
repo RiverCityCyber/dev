@@ -32,7 +32,7 @@
     </div>
     <h1>Raspberry Pi CAN-Bus & Dash-Cam System</h1>
     <div>
-        <h2>CAN-Bus Reader v1</h2>
+        <h2>CAN-Bus Reader v1 - Overview</h2>
         <p>I am currently working on my initial itteration of a micro-computer that I can
             connect to my car's internal CAM-Bus system to record diagnostics. It will also
             have a USB webcam attached to work as a dash-cam, storing video on the onboard
@@ -41,6 +41,19 @@
             a Raspberry Pi 5, for the ability to use M.2 SSDs for video storage and MicroSD
             for the OS.
         </p>
+        <h2>How to build your own Raspberry Pi Zero Dash-cam:</h2>
+        <ol>
+            <li>Install Raspberry Pi OS Lite on a Raspberry Pi Zero</li>
+            <li>Connect your USB camera of choice (I am using a Logitech Webcam)</li>
+            <li>Update the system (sudo apt update && upgrade)</li>
+            <li>Run v4l2-ctl --list-devices, this will show you your webcam's information</li>
+            <li>
+                <p>Run the following code:
+                    ffmpeg \ -f v4l2 \ -input_format mjpeg \ -video_size 1280x720 \ -framerate 15 \ -i /dev/video0 \
+                    -c:v copy \
+                </p>
+            </li>
+        </ol>
     </div>
 </body>
 
