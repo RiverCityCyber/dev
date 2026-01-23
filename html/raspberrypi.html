@@ -49,9 +49,14 @@
             <li>Update the system (sudo apt update && upgrade)</li>
             <li>Run v4l2-ctl --list-devices, this will show you your webcam's information</li>
             <li>
-                <p>Run the following code: \n
-                    <code class="lang-shell">ffmpeg \ -f v4l2 \ -input_format mjpeg \ -video_size 1280x720 \ -framerate 15 \ -i /dev/video0 \
-                    -c:v copy \</code>
+                <p>Create the following script in /usr/local/bin/ \n
+                    <code class="lang-shell">
+                        "#!/bin/bash \n
+                        cd /home/pi/videos
+                        find /home/pi/videos -type f -name "*.mjpeg" -mtime +14 -delete
+
+                        ffmpeg -f v4l2 -input_format mjpeg -video_size 1280x720 -framerate 30 -i /dev/video0 -c:v copy -f segment -segment_time 60 -segment_atclocktime 1 -strftime 1 "dashcam_%Y%m%d_%H%M%S.mjpeg"
+                    </code>
                 </p>
             </li>
         </ol>
