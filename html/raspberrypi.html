@@ -49,8 +49,8 @@
             <li>Update the system (sudo apt update && upgrade)</li>
             <li>Run v4l2-ctl --list-devices, this will show you your webcam's information</li>
             <li>
-                <p>Run the following code:
-                    <code>ffmpeg \ -f v4l2 \ -input_format mjpeg \ -video_size 1280x720 \ -framerate 15 \ -i /dev/video0 \
+                <p>Run the following code: \n
+                    <code class="lang-shell">ffmpeg \ -f v4l2 \ -input_format mjpeg \ -video_size 1280x720 \ -framerate 15 \ -i /dev/video0 \
                     -c:v copy \</code>
                 </p>
             </li>
