@@ -8,7 +8,7 @@ body.dark-mode {
     /* Include a Lightbulb icon, thatd be cool */
     --bkgr-c: rgb(30, 30, 30);
     --bkgr-c-2: rgb(75, 75, 80);
-    --bkgr-c-code: rgb(100, 100, 115);
+    --bkgr-c-code: rgb(50, 50, 50);
     --navbar-c: rgb(40, 145, 35);
     --ptxt-c: rgb(255, 255, 255);
     --inpt-txt-c: rgb(82, 82, 82);
@@ -20,6 +20,7 @@ body.dark-mode {
 body.light-mode {
     --bkgr-c: rgb(255, 250, 235);
     --bkgr-c-2: rgb(191, 191, 232);
+    --bkgr-c-code: rgb(255, 250, 245);
     --navbar-c: rgb(45, 170, 40);
     --ptxt-c: rgb(0, 0, 0);
     --inpt-txt-c: rgb(240, 240, 255);
@@ -61,7 +62,7 @@ pre[class*=lang-] {
     max-height: 70vh;
     max-width: 90vw;
     border: 2px solid #d1d5db;
-    background: var(--inpt-txt-c);
+    background: var(--bkgr-c-code);
     border-radius: 8px;
     position: relative;
     display: block;
@@ -74,8 +75,8 @@ li>pre[class*=lang-] {
 
 code[class*=lang-],
 pre[class*=lang-] {
-    color: #706e6d;
-    background: none;
+    color: var(--ptxt-c);
+    background: var(--bkgr-c-code);
     font-family: SF Mono, SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
     font-size: .95em;
     text-align: left;
