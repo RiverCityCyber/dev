@@ -8,6 +8,7 @@ body.dark-mode {
     /* Include a Lightbulb icon, thatd be cool */
     --bkgr-c: rgb(30, 30, 30);
     --bkgr-c-2: rgb(75, 75, 80);
+    --bkgr-c-code: rgb(100, 100, 115);
     --navbar-c: rgb(40, 145, 35);
     --ptxt-c: rgb(255, 255, 255);
     --inpt-txt-c: rgb(82, 82, 82);
@@ -50,6 +51,110 @@ p {
     max-width: 60%;
     margin-left: auto;
     margin-right: auto;
+}
+
+pre[class*=lang-] {
+    padding: 0.75em 0.75em 0.75em 0.75em;
+    margin: .5em 0;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 70vh;
+    max-width: 90vw;
+    border: 2px solid #d1d5db;
+    background: var(--inpt-txt-c);
+    border-radius: 8px;
+    position: relative;
+    display: block;
+    width: fit-content;
+}
+
+li>pre[class*=lang-] {
+    margin: 0 0.5em;
+}
+
+code[class*=lang-],
+pre[class*=lang-] {
+    color: #706e6d;
+    background: none;
+    font-family: SF Mono, SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    font-size: .95em;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    margin: 0;
+    padding: 1;
+}
+
+.code-block-container {
+    position: relative;
+    display: block;
+    width: fit-content;
+    margin: 1em auto;
+}
+
+li>.code-block-container {
+    display: inline-block;
+    margin: 0 0.5em;
+}
+
+.copy-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 6px 10px;
+    background-color: var(--navbar-c);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.copy-button:hover {
+    background-color: rgb(30, 120, 25);
+}
+
+.copy-button:active {
+    background-color: rgb(20, 100, 15);
+}
+
+.copy-feedback {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    padding: 8px 12px;
+    background-color: var(--navbar-c);
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    pointer-events: none;
+    animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .projects {

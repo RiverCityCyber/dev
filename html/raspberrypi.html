@@ -47,16 +47,19 @@
             <li>Install Raspberry Pi OS Lite on a Raspberry Pi Zero</li>
             <li>Connect your USB camera of choice (I am using a Logitech Webcam)</li>
             <li>Update the system (sudo apt update && upgrade)</li>
-            <li>Run v4l2-ctl --list-devices, this will show you your webcam's information</li>
+            <li>Run
+                <pre class="lang-shell"><code class="lang-shell">v4l2-ctl --list-devices</code></pre> to show you your
+                webcam's information
+            </li>
             <li>
-                <p>Create the following script in /usr/local/bin/ \n
-                <pre>
+                <p>Create the following script in /usr/local/bin/
+                <pre class="lang-shell">
                     <code class="lang-shell">
-                        "#!/bin/bash \n
-                        cd /home/pi/videos
-                        find /home/pi/videos -type f -name "*.mjpeg" -mtime +14 -delete
+#!/bin/bash
+cd /home/pi/videos
+find /home/pi/videos -type f -name "*.mjpeg" -mtime +14 -delete
 
-                        ffmpeg -f v4l2 -input_format mjpeg -video_size 1280x720 -framerate 30 -i /dev/video0 -c:v copy -f segment -segment_time 60 -segment_atclocktime 1 -strftime 1 "dashcam_%Y%m%d_%H%M%S.mjpeg"
+ffmpeg -f v4l2 -input_format mjpeg -video_size 1280x720 -framerate 30 -i /dev/video0 -c:v copy -f segment -segment_time 60 -segment_atclocktime 1 -strftime 1 "dashcam_%Y%m%d_%H%M%S.mjpeg"
                     </code>
                 </pre>
                 </p>
