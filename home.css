@@ -18,7 +18,7 @@ body.dark-mode {
 }
 
 body.light-mode {
-    --bkgr-c: rgb(255, 250, 235);
+    --bkgr-c: rgb(255, 255, 245);
     --bkgr-c-2: rgb(191, 191, 232);
     --bkgr-c-code: rgb(255, 250, 245);
     --navbar-c: rgb(45, 170, 40);
