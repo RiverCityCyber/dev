@@ -19,6 +19,7 @@
             <div class="dropdown-content">
                 <a href="raspberrypi.html">Raspberry Pi CAN-Bus System</a>
                 <a href="webpage.html">RiverCityCyber Webpage</a>
+                <a href="tailscale.html">Tailscale Tutorials</a>
             </div>
         </div>
         <div class="dropdown">
@@ -36,11 +37,20 @@
         <h2>Project ODASHI</h2>
         <p>Project ODASHI (Onboard Diagnostics Assistant Serving Helpful Information) 
             is a Raspberry Pi-based CAN-Bus reader and dash-cam system. 
-            It is designed to be a cost-effective solution for monitoring and recording vehicle data, 
-            as well as providing a dash-cam functionality. The system utilizes a Raspberry Pi Zero, 
-            a USB camera, and a CAN-Bus interface to capture and store data from the vehicle's CAN-Bus network. 
-            The recorded data can be used for various purposes, such as analyzing driving behavior, 
-            diagnosing vehicle issues, or simply keeping a record of your journeys.
+            It is designed to be a cost-effective solution for handling a variety of smart-car features in a secure manner. 
+            The system utilizes a Raspberry Pi 5, USB camera, and CAN-Bus interface to provide the following features:
+            <ol>
+                <li>Car system diagnostics</li>
+                <ul>
+                    <li>Engine utilization and performance</li>
+                    <li>Any error codes (such as check engine lights)</li>
+                    <li>Oil, coolant, and battery levels</li>
+                    <li>Other system data as needed</li>
+                </ul>
+                <li>Dashcam recording</li>
+                <li>Apple Carplay</li>
+                <li>Voice activated commands</li>
+            </ol>
         </p>
         <h2>How to build your own Raspberry Pi Zero Dash-cam:</h2>
         <ol>
@@ -51,8 +61,7 @@
                 <pre class="lang-shell"><code class="lang-shell">v4l2-ctl --list-devices</code></pre> to show you your
                 webcam's information
             </li>
-            <li>
-                <p>Create the following script in /usr/local/bin/
+            <li>Create the following script in /usr/local/bin/
                 <pre class="lang-shell">
                     <code class="lang-shell">
 #!/bin/bash
@@ -62,7 +71,6 @@ find /home/pi/videos -type f -name "*.mjpeg" -mtime +14 -delete
 ffmpeg -f v4l2 -input_format mjpeg -video_size 1280x720 -framerate 30 -i /dev/video0 -c:v copy -f segment -segment_time 60 -segment_atclocktime 1 -strftime 1 "dashcam_%Y%m%d_%H%M%S.mjpeg"
                     </code>
                 </pre>
-                </p>
             </li>
             <li>Set the script to run on startup</li>
             <li>Install react-carplay</li>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            River City Cyber - Tailscale
+        </title>
+        <script src="../script.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Limelight&display=swap">
+        <link rel="stylesheet" href="../home.css">
+    </head>
+    <body class="center">
+        <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="outreach.html">Contact Me</a>
+        <div class="dropdown">
+            <button id="whoami" class="dropbtn" onclick="window.location.href='projects.html'">Projects</button>
+            <div class="dropdown-content">
+                <a href="raspberrypi.html">Raspberry Pi CAN-Bus System</a>
+                <a href="webpage.html">RiverCityCyber Webpage</a>
+                <a href="tailscale.html">Tailscale Tutorials</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button id="whoami" class="dropbtn" onclick="window.location.href='bio.html'">whoami</button>
+            <div class="dropdown-content">
+                <a href="#about.html">About</a>
+                <a href="#blog.html">Blog</a>
+                <a href="#gallery.html">Gallery</a>
+            </div>
+        </div>
+        <button id="dm-toggle" class="drk-mode-btn">🌙</button>
+    </div>
+    <h1>Tailscale Tutorials</h1>
+    <h2>Intro</h2>
+    <div>
+        <p>Tailscale is a Wireguard based VPN that focuses on simplicity and ease of use. By creating secure VPN connections between user devices without the need to open firewall ports, Tailscale is an 
+            incredibly user-friendly VPN solution. The purpose of this tutorial is to highlight one specific instance of Tailscale; installing it on a Mikrotik to allow a L2 tunnel over Tailscale.</p>
+    </div>
+    <h2>Why???</h2>
+    <p>Because there are very rare instances where having two devices on opposite sides of the Earth believe that they are directly connected becomes useful. I cannot list them, but maybe you have
+        found one. I know its useful for specific switches in specific networks. But, on a broader scale the first half of this tutorial is focused on getting Tailscale installed on a Mikrotik, which
+        many people have a use for. If you've never messed around with a Mikrotik, I highly encourage it. They are shockingly powerful little routers!</p>
+    </p>
+    <h2>Installing Tailscale on Mikrotik</h2>
+    <h3>Getting Started</h3>
+    <h4>The Paperwork Stuff</h4>
+    <p>First, come up with a network diagram. You will need to plan out four main subnets: your LAN, your dockers LAN, the Wireguard tunnel subnet, and the EoIP tunnel subnet.</p>
+    <h4>Prerequisites</h4>
+    <p>Before you can install Tailscale on your Mikrotik, ensure you have the following:</p>
+    <ol>
+        <li>A Mikrotik (referrably RB??)</li>
+        <li>WinBox installed on a computer with an ethernet port</li>
+        <li>Internet connectivity for downloading Tailscale</li>
+        <li>Patience and time, this tutorial will take both</li>
+    </ol>
+    <h4>Setting up the Mikrotik</h4>
+    <p>Initial install will go as follows:
+        <ol>
+            <li>Install WinBox on your computer</li>
+            <li>Connect to the Mikrotik via ethernet cable to ether3</li>
+            <li>Set up a Wireguard interface on the Mikrotik to use with Tailscale</li>
+            <li>Set up an EoIP tunnel to bridge the Wireguard interface to your LAN</li>
+            <li>Set up routing and firewall rules as needed</li>
+        </ol>
+    </p>
+    </body>
+</html>
