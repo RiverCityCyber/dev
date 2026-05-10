@@ -1,252 +1,267 @@
 :root {
-    font-size: 26px;
-    font-family: "Times New Roman", Times, serif;
-    /*    --bkgr-img: url('../images/mountainlake.jpg');*/
+  font-size: 26px;
+  font-family: "Times New Roman", Times, serif;
+  /*    --bkgr-img: url('../images/mountainlake.jpg');*/
 }
 
 body.dark-mode {
-    /* Include a Lightbulb icon, thatd be cool */
-    --bkgr-c: rgb(30, 30, 30);
-    --bkgr-c-2: rgb(75, 75, 80);
-    --bkgr-c-code: rgb(50, 50, 50);
-    --navbar-c: rgb(40, 145, 35);
-    --ptxt-c: rgb(255, 255, 255);
-    --inpt-txt-c: rgb(82, 82, 82);
-    --a-c: rgb(0, 70, 151);
-    --a-c-visited: rgb(103, 0, 151);
-    --title-txt-c: rgb(0, 95, 5);
+  /* Include a Lightbulb icon, thatd be cool */
+  --bkgr-c: rgb(30, 30, 30);
+  --bkgr-c-2: rgb(75, 75, 80);
+  --bkgr-c-code: rgb(50, 50, 50);
+  --navbar-c: rgb(40, 145, 35);
+  --ptxt-c: rgb(255, 255, 255);
+  --inpt-txt-c: rgb(82, 82, 82);
+  --a-c: rgb(0, 70, 151);
+  --a-c-visited: rgb(103, 0, 151);
+  --title-txt-c: rgb(0, 95, 5);
 }
 
 body.light-mode {
-    --bkgr-c: rgb(255, 255, 245);
-    --bkgr-c-2: rgb(191, 191, 232);
-    --bkgr-c-code: rgb(255, 250, 245);
-    --navbar-c: rgb(45, 170, 40);
-    --ptxt-c: rgb(0, 0, 0);
-    --inpt-txt-c: rgb(240, 240, 255);
-    --a-c: rgb(0, 70, 151);
-    --a-c-visited: rgb(103, 0, 151);
-    --title-txt-c: rgb(0, 95, 5);
+  --bkgr-c: rgb(255, 255, 245);
+  --bkgr-c-2: rgb(191, 191, 232);
+  --bkgr-c-code: rgb(255, 250, 245);
+  --navbar-c: rgb(45, 170, 40);
+  --ptxt-c: rgb(0, 0, 0);
+  --inpt-txt-c: rgb(240, 240, 255);
+  --a-c: rgb(0, 70, 151);
+  --a-c-visited: rgb(103, 0, 151);
+  --title-txt-c: rgb(0, 95, 5);
 }
 
 h1 {
-    font-family: 'Limelight', sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    font-style: normal;
-    text-align: center;
-    color: var(--title-txt-c);
+  font-family: "Limelight", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  color: var(--title-txt-c);
+}
+h2 {
+  font-family: "Limelight", sans-serif;
+  font-style: normal;
+  text-align: center;
+  color: var(--title-txt-c);
 }
 
 .center,
 p {
-    text-align: center;
-    background-color: var(--bkgr-c);
-    background-image: var(--bkgr-img);
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: var(--ptxt-c);
+  text-align: center;
+  background-color: var(--bkgr-c);
+  background-image: var(--bkgr-img);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--ptxt-c);
 }
 
 p {
-    max-width: 60%;
-    margin-left: auto;
-    margin-right: auto;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 ol {
-  margin: 0 auto;      /* center the list on the page */
-  text-align: left;    /* keep list items left-aligned */
+  margin: 0 auto; /* center the list on the page */
+  text-align: left; /* keep list items left-aligned */
   list-style-position: inside;
   padding-left: 35%;
 }
 
-pre[class*=lang-] {
-    padding: 0.75em 0.75em 0.75em 0.75em;
-    margin: .5em 0;
-    overflow-y: auto;
-    overflow-x: auto;
-    max-height: 70vh;
-    max-width: 90vw;
-    border: 2px solid #d1d5db;
-    background: var(--bkgr-c-code);
-    border-radius: 8px;
-    position: relative;
-    display: block;
-    width: fit-content;
+pre[class*="lang-"] {
+  padding: 0.75em 0.75em 0.75em 0.75em;
+  margin: 0.5em 0;
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 70vh;
+  max-width: 90vw;
+  border: 2px solid #d1d5db;
+  background: var(--bkgr-c-code);
+  border-radius: 8px;
+  position: relative;
+  display: block;
+  width: fit-content;
 }
 
-li>pre[class*=lang-] {
-    margin: 0 0.5em;
+li > pre[class*="lang-"] {
+  margin: 0 0.5em;
 }
 
-code[class*=lang-],
-pre[class*=lang-] {
-    color: var(--ptxt-c);
-    background: var(--bkgr-c-code);
-    font-family: SF Mono, SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-    font-size: .95em;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
-    line-height: 1.5;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
-    margin: 0;
-    padding: 1;
+code[class*="lang-"],
+pre[class*="lang-"] {
+  color: var(--ptxt-c);
+  background: var(--bkgr-c-code);
+  font-family:
+    SF Mono,
+    SFMono-Regular,
+    ui-monospace,
+    Menlo,
+    Monaco,
+    Consolas,
+    Liberation Mono,
+    Courier New,
+    monospace;
+  font-size: 0.95em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  margin: 0;
+  padding: 1;
 }
 
 .code-block-container {
-    position: relative;
-    display: block;
-    width: fit-content;
-    margin: 1em auto;
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin: 1em auto;
 }
 
-li>.code-block-container {
-    display: inline-block;
-    margin: 0 0.5em;
+li > .code-block-container {
+  display: inline-block;
+  margin: 0 0.5em;
 }
 
 .copy-button {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    padding: 6px 10px;
-    background-color: var(--navbar-c);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 12px;
-    transition: background-color 0.3s ease;
-    z-index: 10;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 6px 10px;
+  background-color: var(--navbar-c);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+  z-index: 10;
 }
 
 .copy-button:hover {
-    background-color: rgb(30, 120, 25);
+  background-color: rgb(30, 120, 25);
 }
 
 .copy-button:active {
-    background-color: rgb(20, 100, 15);
+  background-color: rgb(20, 100, 15);
 }
 
 .copy-feedback {
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    padding: 8px 12px;
-    background-color: var(--navbar-c);
-    color: white;
-    border-radius: 4px;
-    font-size: 12px;
-    pointer-events: none;
-    animation: fadeInOut 2s ease-in-out;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  padding: 8px 12px;
+  background-color: var(--navbar-c);
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+  animation: fadeInOut 2s ease-in-out;
 }
 
 @keyframes fadeInOut {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-    90% {
-        opacity: 1;
-    }
+  90% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
 .projects {
-    text-align: center;
-    color: var(--ptxt-c);
+  text-align: center;
+  color: var(--ptxt-c);
 }
 
 .drk-mode-btn {
-    color: var(--ptxt-c);
-    border: none;
-    padding: 0px 10px;
-    cursor: pointer;
-    font-size: 20px;
-    background: none;
-    margin-left: auto;
+  color: var(--ptxt-c);
+  border: none;
+  padding: 0px 10px;
+  cursor: pointer;
+  font-size: 20px;
+  background: none;
+  margin-left: auto;
 }
 
 .navbar {
-    overflow: hidden;
-    background-color: var(--bkgr-c-2);
-    display: flex;
-    align-items: left;
+  overflow: hidden;
+  background-color: var(--bkgr-c-2);
+  display: flex;
+  align-items: left;
 }
 
 /* Links inside the navbar */
 .navbar a {
-    float: left;
-    font-size: 16px;
-    color: var(--ptxt-c);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  float: left;
+  font-size: 16px;
+  color: var(--ptxt-c);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 /* The dropdown container */
 .dropdown {
-    float: left;
-    overflow: hidden;
+  float: left;
+  overflow: hidden;
 }
 
 /* Dropdown button */
 .dropdown .dropbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: var(--ptxt-c);
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: var(--ptxt-c);
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
 }
 
 /* Highlight color when hovering over choice*/
 .dropdown:hover .dropbtn {
-    background-color: var(--navbar-c);
-    cursor: pointer;
+  background-color: var(--navbar-c);
+  cursor: pointer;
 }
 
 /* Dropdown content (hidden by default) */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
 }
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
 }
