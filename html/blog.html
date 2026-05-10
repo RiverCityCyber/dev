@@ -2,9 +2,8 @@
 <html lang="en"> 
 
 <head> 
-	<meta charset="UTF-8"> 
-	<meta name="viewport" content= 
-		"width=device-width, initial-scale=1.0"> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
     River City Cyber
   </title>
@@ -15,99 +14,53 @@
   <link rel="stylesheet" href="../home.css">
 </head> 
 
-<body> 
-	<header> 
-		<h1>GeeksforGeeks</h1> 
-		<p>A computer science portal for geeks</p> 
-	</header> 
+<body class="center">
+	<header>
+		<h1>RCCyber Blog Posts</h1>
+	</header>
 
-	<nav> 
-		<a href="#">Home</a> 
-		<a href="#">HTML</a> 
-		<a href="#">CSS</a> 
-		<a href="#">JavaScript</a> 
-		<a href="#">ReactJS</a> 
-	</nav> 
+	<div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="outreach.html">Contact Me</a>
+        <div class="dropdown">
+            <button id="whoami" class="dropbtn" onclick="window.location.href='projects.html'">Projects</button>
+            <div class="dropdown-content">
+                <a href="raspberrypi.html">Raspberry Pi CAN-Bus System</a>
+                <a href="webpage.html">RiverCityCyber Webpage</a>
+                <a href="tailscale.html">Tailscale Tutorials</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button id="whoami" class="dropbtn" onclick="window.location.href='bio.html'">whoami</button>
+            <div class="dropdown-content">
+                <a href="about.html">About</a>
+                <a href="blog.html">Blog</a>
+                <a href="gallery.html">Gallery</a>
+            </div>
+        </div>
+        <button id="dm-toggle" class="drk-mode-btn">🌙</button>
+    </div>
 
 	<div class="container"> 
 		<main> 
 			<article> 
-				<h2>HTML</h2> 
+				<h2>2026 HackSpaceCon</h2> 
 				<p class="post-meta"> 
-					Published on December 11, 2023 by GeeksforGeeks 
+					Published on May 9th 2026 by Connor
 				</p> 
 				<p> 
-					HTML stands for HyperText Markup Language. It is 
-					used to design the web pages. With the help of HTML, 
-					you can create a complete website structure. HTML 
-					is the combination of Hypertext and Markup language. 
-					Hypertext defines the link between the web pages 
-					and markup language defines the text document within 
-					the tag that define the structure of web pages. 
+					On May 8th, I had the pleasure of attending Day 1 of HackSpaceCon at the
+                    Kennedy Space Center in Florida. While currently working as a Jr. Network
+                    Engineer, I have not had enough exposure to the cyber security community.
+                    Attending this event was a much needed refresher in how fun and welcoming the 
+                    cyber security community is, and how important it is to attend such events whenever possible.
 				</p> 
 			</article> 
 
-			<article> 
-				<h2>CSS</h2> 
-				<p class="post-meta"> 
-					Published on December 10, 2023 by GeeksforGeeks 
-				</p> 
-				<p> 
-					CSS (Cascading Style Sheets) is used to styles web 
-					pages. Cascading Style Sheets are fondly referred 
-					to as CSS. The reason for using this is to simplify 
-					the process of making web pages presentable. It allows 
-					you to apply styles on web pages. More importantly, 
-					it enables you to do this independently of the HTML 
-					that makes up each web page. 
-				</p> 
-			</article> 
-
-			<article> 
-				<h2>JavaScript</h2> 
-				<p class="post-meta"> 
-					Published on December 09, 2023 by GeeksforGeeks 
-				</p> 
-				<p> 
-					JavaScript (JS) is the most popular lightweight, 
-					interpreted compiled programming language. It can 
-					be used for both Client-side as well as Server-side 
-					developments. JavaScript also known as a scripting 
-					language for web pages. This JavaScript Tutorial is 
-					designed to help both beginners and experienced 
-					professionals master the fundamentals of JavaScript 
-					and unleash their creativity to build powerful web 
-					applications. From basic syntax and data types to 
-					advanced topics such as object-oriented programming 
-					and DOM manipulation. 
-				</p> 
-			</article> 
-
-			<article> 
-				<h2>ReactJS</h2> 
-				<p class="post-meta"> 
-					Published on December 08, 2023 by GeeksforGeeks 
-				</p> 
-				<p> 
-					ReactJS is a declarative, efficient, and flexible 
-					JavaScript library for building user interfaces. 
-					It is an open-source, component-based front-end 
-					library that is responsible only for the view layer 
-					of the application. ReactJS is not a framework, it 
-					is just a library developed by Facebook to solve 
-					some problems that we were facing earlier. 
-				</p> 
-			</article> 
+			
 		</main> 
 
 		<aside> 
-			<h2>Recent Posts</h2> 
-			<ul> 
-				<li><a href="#">HTML</a></li> 
-				<li><a href="#">CSS</a></li> 
-				<li><a href="#">JavaScript</a></li> 
-				<li><a href="#">ReactJS</a></li> 
-			</ul> 
 		</aside> 
 	</div> 
 
