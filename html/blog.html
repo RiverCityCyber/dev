@@ -3,98 +3,129 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;"
+    />
     <title>River City Cyber</title>
-    <script src="../script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Limelight&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Limelight&family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap"
     />
     <link rel="stylesheet" href="../home.css" />
+    <script src="../script.js" defer></script>
   </head>
-
-  <body class="center">
-    <div class="navbar">
-      <a href="index.html">Home</a>
-      <a href="outreach.html">Contact Me</a>
-      <div class="dropdown">
-        <button
-          id="whoami"
-          class="dropbtn"
-          onclick="window.location.href = 'projects.html'"
+  <body>
+    <header class="header-hud">
+      <div class="header-hud__left">
+        <a
+          href="https://github.com/RiverCityCyber/"
+          target="_blank"
+          rel="noopener"
+          class="github-link"
         >
-          Projects
-        </button>
-        <div class="dropdown-content">
-          <a href="raspberrypi.html">Raspberry Pi CAN-Bus System</a>
-          <a href="webpage.html">RiverCityCyber Webpage</a>
-          <a href="tailscale.html">Tailscale Tutorials</a>
-        </div>
+          <svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+            />
+          </svg>
+          GitHub
+        </a>
       </div>
-      <div class="dropdown">
-        <button
-          id="whoami"
-          class="dropbtn"
-          onclick="window.location.href = 'bio.html'"
-        >
-          whoami
-        </button>
-        <div class="dropdown-content">
-          <a href="about.html">About</a>
-          <a href="blog.html">Blog</a>
-          <a href="gallery.html">Gallery</a>
-        </div>
-      </div>
-      <button id="dm-toggle" class="drk-mode-btn">🌙</button>
-    </div>
 
-    <div class="container">
-      <main>
-        <article>
-          <h2>2026 HackSpaceCon</h2>
-          <p class="post-meta">Published on May 9th 2026 by Connor</p>
-          <p>
-            On May 8th, I had the pleasure of attending Day 1 of HackSpaceCon at
-            the Kennedy Space Center in Florida. While currently working as a
-            Jr. Network Engineer, I have not had enough exposure to the cyber
-            security community. Attending this event was a much needed refresher
-            in how fun and welcoming the cyber security community is, and how
-            important it is to attend such events whenever possible.
-          </p>
-        </article>
-        <article>
-            <h2>Setting Up VS Code</h2>
-            <p class="post-meta">Published on May 9th 2026 by Connor</p>
-          <p>
-            There are a ton of options and extensions you can install for VS Code to make
-            it the perfect coding platform for you. The following are just what I have found
-            useful.
-            <ul>
-                <li>Prettier code formatter<p>
-                    Install prettier, then run Cmd + Shift + P on MacOS to search. Type in
-                    "    "[html]": {"editor.defaultFormatter": "esbenp.prettier-vscode",
-                    "editor.formatOnSave": true}". Save, and now when you save a HMTL file,
-                    Prettier will automatically format it for you. The same can be done without
-                    Prettier, but I enjoy how it formats. 
-                </p></li>
-            </ul>
-          </p>
-        </article>
-        <article>
-            <h2><href a="autobox.html">Setting Up an AutoBox on AWS</href></h2>
-            <p>An autobox is a VM or Docker container project that I am working on,
-                where the purpose is to have a cloud hosted machine that will scan your public
-                facing machines for any vulnerabilities and notify you of any issues.
+      <span class="header-hud__brand">River City Cyber</span>
+
+      <nav class="header-hud__nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="outreach.html">Contact Me</a>
+
+        <div class="dropdown">
+          <button
+            type="button"
+            onclick="window.location.href = 'projects.html'"
+          >
+            Projects
+          </button>
+          <div class="dropdown-content">
+            <a href="raspberrypi.html">O.D.A.S.H.I. Project</a>
+            <a href="webpage.html">Webpage Dev Log</a>
+            <a href="tailscale.html">Tailscale Tutorials</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button type="button" onclick="window.location.href = 'bio.html'">
+            whoami
+          </button>
+          <div class="dropdown-content">
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </div>
+
+        <button
+          id="dm-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark mode"
+        >
+          🌙
+        </button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <article>
+        <h2>2026 HackSpaceCon</h2>
+        <p class="post-meta">Published on May 9th 2026 by Connor</p>
+        <p>
+          On May 8th, I had the pleasure of attending Day 1 of HackSpaceCon at
+          the Kennedy Space Center in Florida. While currently working as a Jr.
+          Network Engineer, I have not had enough exposure to the cyber security
+          community. Attending this event was a much needed refresher in how fun
+          and welcoming the cyber security community is, and how important it is
+          to attend such events whenever possible.
+        </p>
+      </article>
+      <article>
+        <h2>Setting Up VS Code</h2>
+        <p class="post-meta">Published on May 9th 2026 by Connor</p>
+        <p>
+          There are a ton of options and extensions you can install for VS Code
+          to make it the perfect coding platform for you. The following are just
+          what I have found useful.
+        </p>
+        <ul>
+          <li>
+            Prettier code formatter
+            <p>
+              Install prettier, then run Cmd + Shift + P on MacOS to search.
+              Type in "[html]": {"editor.defaultFormatter":
+              "esbenp.prettier-vscode", "editor.formatOnSave": true}. Save, and
+              now when you save a HMTL file, Prettier will automatically format
+              it for you. The same can be done without Prettier, but I enjoy how
+              it formats.
             </p>
-        </article>
-      </main>
-
-      <aside></aside>
-    </div>
+          </li>
+        </ul>
+      </article>
+      <article>
+        <h2><a href="autobox.html">Setting Up an AutoBox on AWS</a></h2>
+        <p>
+          An autobox is a VM or Docker container project that I am working on,
+          where the purpose is to have a cloud hosted machine that will scan
+          your public facing machines for any vulnerabilities and notify you of
+          any issues.
+        </p>
+      </article>
+    </main>
 
     <footer>
-      <p>© 2026 RiverCityCyber. All rights reserved.</p>
+      <p>&copy; 2026 Connor G. | RiverCityCyber</p>
+      <p class="footer-status">// SYSTEM STATUS: ONLINE</p>
     </footer>
   </body>
 </html>

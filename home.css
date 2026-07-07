@@ -1,267 +1,709 @@
+/* =========================================================================
+   RIVER CITY CYBER — DESIGN SYSTEM
+   Layers: tokens -> reset -> base -> layout -> components -> utilities
+   Edit tokens in :root to retheme the whole site from one place.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1. DESIGN TOKENS
+   Every color, font, spacing step, and effect lives here. Components below
+   reference tokens only — never hardcoded values — so the whole theme can
+   be changed by editing this block alone.
+   ------------------------------------------------------------------------- */
 :root {
-  font-size: 26px;
-  font-family: "Times New Roman", Times, serif;
-  /*    --bkgr-img: url('../images/mountainlake.jpg');*/
+  /* Base font size stays at the browser default (16px) so rem math is
+     predictable and respects user accessibility settings. */
+  font-size: 100%;
+
+  /* --- Palette: Tron / cyberpunk core --- */
+  --color-black: #000000;
+  --color-blue: #00f3ff;
+  --color-orange: #ff9100;
+  --color-nitro: #00e5ff;
+  --color-danger: #ff1a1a;
+  --color-silver: #b8c7d6;
+  --color-glass: rgba(10, 15, 25, 0.9);
+
+  /* --- Semantic tokens (what things MEAN, not what they look like) ---
+     Components use these, never --color-* directly. This is the layer
+     that light/dark mode below actually overrides. */
+  --bg-page: var(--color-black);
+  --bg-surface: var(--color-glass);
+  --bg-surface-2: rgba(20, 20, 20, 0.9);
+  --text-primary: var(--color-silver);
+  --text-heading: var(--color-blue);
+  --accent: var(--color-blue);
+  --accent-2: var(--color-orange);
+  --accent-link: var(--color-nitro);
+  --border-color: var(--color-blue);
+
+  /* --- Typography --- */
+  --font-heading: "Orbitron", sans-serif;
+  --font-display: "Orbitron", sans-serif;
+  --font-body: "Share Tech Mono", monospace;
+  --font-mono:
+    SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  /* Fluid type scale: scales smoothly between mobile and desktop without
+     media-query breakpoints for font-size. */
+  --text-sm: clamp(0.8rem, 0.76rem + 0.2vw, 0.9rem);
+  --text-base: 1rem;
+  --text-lg: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
+  --text-xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --text-2xl: clamp(2rem, 1.6rem + 2vw, 3rem);
+
+  /* --- Spacing scale: one set of steps used everywhere for margin/padding/gap --- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4rem;
+
+  /* --- Effects --- */
+  --glow-subtle: 0 0 8px var(--accent);
+  --glow-strong: 0 0 20px var(--accent), 0 0 40px var(--accent);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+
+  /* --- Layout --- */
+  --header-height: 4.5rem;
+  --content-max-width: 1200px;
+  --prose-max-width: 60ch;
 }
 
-body.dark-mode {
-  /* Include a Lightbulb icon, thatd be cool */
-  --bkgr-c: rgb(30, 30, 30);
-  --bkgr-c-2: rgb(75, 75, 80);
-  --bkgr-c-code: rgb(50, 50, 50);
-  --navbar-c: rgb(40, 145, 35);
-  --ptxt-c: rgb(255, 255, 255);
-  --inpt-txt-c: rgb(82, 82, 82);
-  --a-c: rgb(0, 70, 151);
-  --a-c-visited: rgb(103, 0, 151);
-  --title-txt-c: rgb(0, 95, 5);
-}
-
+/* -------------------------------------------------------------------------
+   2. THEME OVERRIDES
+   Light/dark mode only ever override semantic tokens above — never raw
+   component CSS. Add a new theme by adding a new block here.
+   ------------------------------------------------------------------------- */
 body.light-mode {
-  --bkgr-c: rgb(255, 255, 245);
-  --bkgr-c-2: rgb(191, 191, 232);
-  --bkgr-c-code: rgb(255, 250, 245);
-  --navbar-c: rgb(45, 170, 40);
-  --ptxt-c: rgb(0, 0, 0);
-  --inpt-txt-c: rgb(240, 240, 255);
-  --a-c: rgb(0, 70, 151);
-  --a-c-visited: rgb(103, 0, 151);
-  --title-txt-c: rgb(0, 95, 5);
+  --bg-page: #e8edf2;
+  --bg-surface: rgba(255, 255, 255, 0.85);
+  --bg-surface-2: rgba(225, 230, 238, 0.9);
+  --text-primary: #1a1a1a;
+  --text-heading: #005f95;
+  --accent: #0090a8;
+  --accent-2: var(--color-orange);
+  --border-color: #0090a8;
+}
+
+/* Respect OS-level preference automatically when no explicit choice made */
+@media (prefers-color-scheme: light) {
+  body:not(.dark-mode):not(.light-mode) {
+    --bg-page: #e8edf2;
+    --bg-surface: rgba(255, 255, 255, 0.85);
+    --bg-surface-2: rgba(225, 230, 238, 0.9);
+    --text-primary: #1a1a1a;
+    --text-heading: #005f95;
+    --accent: #0090a8;
+    --border-color: #0090a8;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   3. RESET
+   ------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Respect reduced-motion preferences site-wide */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   4. BASE ELEMENT STYLES
+   ------------------------------------------------------------------------- */
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-top: var(--header-height);
+  position: relative;
+  overflow-x: hidden;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
+}
+
+/* Static grid background, theme-aware via --border-color */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--border-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.15;
+}
+
+h1,
+h2 {
+  font-family: var(--font-display);
+  color: var(--text-heading);
+  text-align: center;
+  font-weight: 700;
 }
 
 h1 {
-  font-family: "Limelight", sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  font-style: normal;
-  text-align: center;
-  color: var(--title-txt-c);
-}
-h2 {
-  font-family: "Limelight", sans-serif;
-  font-style: normal;
-  text-align: center;
-  color: var(--title-txt-c);
+  font-size: var(--text-2xl);
+  margin-block: var(--space-5) var(--space-3);
 }
 
-.center,
-p {
-  text-align: center;
-  background-color: var(--bkgr-c);
-  background-image: var(--bkgr-img);
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: var(--ptxt-c);
+h2.section-display {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  letter-spacing: 2px;
+  border-bottom: 1px solid var(--border-color);
+  display: inline-block;
+  margin-bottom: var(--space-4);
 }
 
 p {
-  max-width: 60%;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: var(--prose-max-width);
+  margin-inline: auto;
+  text-align: center;
 }
 
 ol {
-  margin: 0 auto; /* center the list on the page */
-  text-align: left; /* keep list items left-aligned */
+  margin-inline: auto;
+  text-align: left;
   list-style-position: inside;
-  padding-left: 35%;
+  max-width: var(--prose-max-width);
 }
 
+/* -------------------------------------------------------------------------
+   5. LAYOUT PRIMITIVES
+   Reusable layout patterns. Built with modern Grid/Flexbox so new sections
+   can opt in without writing new layout CSS.
+   ------------------------------------------------------------------------- */
+.container {
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-5);
+  margin-block: var(--space-6);
+}
+
+/* -------------------------------------------------------------------------
+   6. HEADER / NAVBAR
+   Semantic, three-zone header using CSS Grid (logo | brand | nav).
+   Markup-flexible: any zone can hold 0+ children without breaking layout.
+   ------------------------------------------------------------------------- */
+.header-hud {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 1000;
+  height: var(--header-height);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-4);
+  padding-inline: var(--space-5);
+  background-color: var(--bg-surface);
+  border-bottom: 2px solid var(--border-color);
+  box-shadow: var(--glow-subtle);
+  backdrop-filter: blur(10px);
+}
+
+.header-hud__brand {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: var(--text-heading);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: var(--glow-subtle);
+  white-space: nowrap;
+  justify-self: center;
+}
+
+.header-hud__left {
+  justify-self: start;
+}
+
+.header-hud__nav {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.header-hud a {
+  text-decoration: none;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color var(--transition-base);
+}
+
+.header-hud a:hover {
+  color: var(--accent);
+  text-shadow: var(--glow-strong);
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+}
+
+.github-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: currentColor;
+}
+
+.theme-toggle {
+  font-size: var(--text-lg);
+  line-height: 1;
+}
+
+/* --- Dropdown menus (hover + keyboard accessible) --- */
+.dropdown {
+  position: relative;
+}
+
+.dropdown > button {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 14rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--glow-strong);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  animation: slide-down var(--transition-base);
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  transition:
+    background-color var(--transition-fast),
+    padding-left var(--transition-fast);
+}
+
+.dropdown-content a:hover {
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  padding-left: var(--space-5);
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -------------------------------------------------------------------------
+   7. CARDS
+   ------------------------------------------------------------------------- */
+.data-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  padding: var(--space-5);
+  position: relative;
+  transition: box-shadow var(--transition-base);
+}
+
+.data-card:hover {
+  box-shadow: var(--glow-strong);
+}
+
+.intro-card {
+  max-width: var(--prose-max-width);
+  margin: var(--space-5) auto var(--space-6);
+}
+
+.intro-card p {
+  margin: 0;
+}
+
+.data-card::before,
+.data-card::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--border-color);
+  transition: all var(--transition-base);
+  pointer-events: none;
+}
+
+.data-card::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.data-card::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.data-card:hover::before,
+.data-card:hover::after {
+  width: 100%;
+  height: 100%;
+}
+
+.card-header {
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+}
+
+.card-indicator {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-2);
+  border-radius: 50%;
+  box-shadow: var(--glow-strong);
+  display: inline-block;
+  margin-right: var(--space-3);
+  flex-shrink: 0;
+}
+
+.data-card p + p {
+  margin-top: var(--space-3);
+}
+
+.project-tech {
+  font-size: var(--text-sm);
+  color: var(--accent-2);
+  margin-top: var(--space-3);
+  background: rgba(0, 0, 0, 0.3);
+  padding: var(--space-2);
+  border-left: 2px solid var(--accent-2);
+}
+
+.project-phases {
+  margin-block: var(--space-3);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+}
+
+.project-subtitle {
+  font-size: var(--text-sm);
+  color: var(--accent-2);
+  margin-bottom: var(--space-3);
+}
+
+/* -------------------------------------------------------------------------
+   8. SKILL BARS
+   ------------------------------------------------------------------------- */
+.skill-item + .skill-item {
+  margin-top: var(--space-4);
+}
+
+.skill-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+
+.skill-track {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: var(--glow-subtle);
+  transition: width 1.5s ease-out;
+}
+
+/* -------------------------------------------------------------------------
+   9. BUTTONS / LINKS
+   ------------------------------------------------------------------------- */
+.boost-button {
+  --button-color: var(--accent);
+  display: inline-block;
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+  background: transparent;
+  border: 2px solid var(--button-color);
+  color: var(--button-color);
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.boost-button:hover {
+  background: var(--button-color);
+  color: var(--bg-page);
+  box-shadow:
+    0 0 20px var(--button-color),
+    0 0 40px var(--button-color);
+}
+
+.boost-button:hover::before {
+  background: var(--button-color);
+  box-shadow:
+    0 0 20px var(--button-color),
+    0 0 40px var(--button-color);
+}
+
+/* Color variants via a single data attribute instead of inline styles */
+.boost-button[data-variant="orange"] {
+  --button-color: var(--accent-2);
+}
+
+.boost-button[data-variant="nitro"] {
+  --button-color: var(--color-nitro);
+}
+
+/* -------------------------------------------------------------------------
+   10. CODE BLOCKS
+   ------------------------------------------------------------------------- */
 pre[class*="lang-"] {
-  padding: 0.75em 0.75em 0.75em 0.75em;
-  margin: 0.5em 0;
-  overflow-y: auto;
-  overflow-x: auto;
+  padding: var(--space-3);
+  margin-block: var(--space-2);
+  overflow: auto;
   max-height: 70vh;
   max-width: 90vw;
-  border: 2px solid #d1d5db;
-  background: var(--bkgr-c-code);
-  border-radius: 8px;
-  position: relative;
-  display: block;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-2);
   width: fit-content;
-}
-
-li > pre[class*="lang-"] {
-  margin: 0 0.5em;
 }
 
 code[class*="lang-"],
 pre[class*="lang-"] {
-  color: var(--ptxt-c);
-  background: var(--bkgr-c-code);
-  font-family:
-    SF Mono,
-    SFMono-Regular,
-    ui-monospace,
-    Menlo,
-    Monaco,
-    Consolas,
-    Liberation Mono,
-    Courier New,
-    monospace;
+  color: var(--text-primary);
+  background: var(--bg-surface-2);
+  font-family: var(--font-mono);
   font-size: 0.95em;
   text-align: left;
   white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
   line-height: 1.5;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
   tab-size: 4;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
   hyphens: none;
-  margin: 0;
-  padding: 1;
 }
 
 .code-block-container {
   position: relative;
   display: block;
   width: fit-content;
-  margin: 1em auto;
-}
-
-li > .code-block-container {
-  display: inline-block;
-  margin: 0 0.5em;
+  margin: var(--space-4) auto;
 }
 
 .copy-button {
   position: absolute;
-  top: 5px;
-  right: 5px;
-  padding: 6px 10px;
-  background-color: var(--navbar-c);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 12px;
-  transition: background-color 0.3s ease;
+  top: var(--space-2);
+  right: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--accent);
+  color: var(--bg-page);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
   z-index: 10;
+  transition: background-color var(--transition-base);
 }
 
 .copy-button:hover {
-  background-color: rgb(30, 120, 25);
-}
-
-.copy-button:active {
-  background-color: rgb(20, 100, 15);
+  filter: brightness(0.85);
 }
 
 .copy-feedback {
   position: absolute;
-  top: 50px;
-  right: 10px;
-  padding: 8px 12px;
-  background-color: var(--navbar-c);
-  color: white;
-  border-radius: 4px;
-  font-size: 12px;
+  top: 3.2rem;
+  right: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--accent);
+  color: var(--bg-page);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
   pointer-events: none;
-  animation: fadeInOut 2s ease-in-out;
+  animation: fade-in-out 2s ease-in-out;
 }
 
-@keyframes fadeInOut {
-  0% {
-    opacity: 1;
-  }
-
+@keyframes fade-in-out {
+  0%,
   90% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
 }
 
-.projects {
+/* -------------------------------------------------------------------------
+   11. FOOTER
+   ------------------------------------------------------------------------- */
+footer {
   text-align: center;
-  color: var(--ptxt-c);
+  padding: var(--space-6);
+  margin-top: var(--space-7);
+  border-top: 1px solid var(--border-color);
+  background: linear-gradient(
+    180deg,
+    transparent,
+    color-mix(in srgb, var(--accent) 5%, transparent)
+  );
 }
 
-.drk-mode-btn {
-  color: var(--ptxt-c);
-  border: none;
-  padding: 0px 10px;
-  cursor: pointer;
-  font-size: 20px;
-  background: none;
-  margin-left: auto;
+.footer-status {
+  font-size: var(--text-sm);
+  color: var(--accent);
+  margin-top: var(--space-2);
 }
 
-.navbar {
-  overflow: hidden;
-  background-color: var(--bkgr-c-2);
-  display: flex;
-  align-items: left;
-}
-
-/* Links inside the navbar */
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: var(--ptxt-c);
+/* -------------------------------------------------------------------------
+   12. UTILITIES
+   ------------------------------------------------------------------------- */
+.text-center {
   text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
 }
 
-/* The dropdown container */
-.dropdown {
-  float: left;
-  overflow: hidden;
+.mt-7 {
+  margin-top: var(--space-7);
 }
 
-/* Dropdown button */
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: var(--ptxt-c);
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-/* Highlight color when hovering over choice*/
-.dropdown:hover .dropbtn {
-  background-color: var(--navbar-c);
-  cursor: pointer;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
+.visually-hidden {
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
+/* -------------------------------------------------------------------------
+   13. RESPONSIVE
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --header-height: auto;
+  }
 
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
+  body {
+    padding-top: 11rem;
+  }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
+  .header-hud {
+    grid-template-columns: 1fr;
+    height: auto;
+    padding-block: var(--space-3);
+    justify-items: center;
+    gap: var(--space-2);
+  }
+
+  .header-hud__left,
+  .header-hud__brand,
+  .header-hud__nav {
+    justify-self: center;
+  }
+
+  .header-hud__nav {
+    justify-content: center;
+  }
+
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  p {
+    max-width: 100%;
+  }
 }

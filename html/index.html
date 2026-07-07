@@ -1,46 +1,259 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;"
+    />
+    <title>River City Cyber</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Limelight&family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap"
+    />
+    <link rel="stylesheet" href="../home.css" />
+    <script src="../script.js" defer></script>
+  </head>
 
-<head> 
-	<meta charset="UTF-8"> 
-	<meta name="viewport" content= 
-		"width=device-width, initial-scale=1.0"> 
-  <title>
-    River City Cyber
-  </title>
-  <script src="../script.js" defer></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Limelight&display=swap">
-  <link rel="stylesheet" href="../home.css">
-</head> 
+  <body>
+    <header class="header-hud">
+      <div class="header-hud__left">
+        <a
+          href="https://github.com/RiverCityCyber/"
+          target="_blank"
+          rel="noopener"
+          class="github-link"
+        >
+          <svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+            />
+          </svg>
+          GitHub
+        </a>
+      </div>
 
-<body class="center">
-    <div class="navbar">
+      <span class="header-hud__brand">River City Cyber</span>
+
+      <nav class="header-hud__nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="outreach.html">Contact Me</a>
-        <div class="dropdown">
-            <button id="whoami" class="dropbtn" onclick="window.location.href='projects.html'">Projects</button>
-            <div class="dropdown-content">
-                <a href="raspberrypi.html">Raspberry Pi CAN-Bus System</a>
-                <a href="webpage.html">RiverCityCyber Webpage</a>
-                <a href="tailscale.html">Tailscale Tutorials</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button id="whoami" class="dropbtn" onclick="window.location.href='bio.html'">whoami</button>
-            <div class="dropdown-content">
-                <a href="#about.html">About</a>
-                <a href="blog.html">Blog</a>
-                <a href="#gallery.html">Gallery</a>
-            </div>
-        </div>
-        <button id="dm-toggle" class="drk-mode-btn">🌙</button>
-    </div>
 
-    <h1>Welcome to River City Cyber!</h1>
-    <p>River City Cyber is a fun domain name I came up with to host my own webpage. Right now, I am using it to learn
-        front end development, so feel free to hang out, explore, and let me know what you think :)</p>
-</body>
+        <div class="dropdown">
+          <button
+            type="button"
+            onclick="window.location.href = 'projects.html'"
+          >
+            Projects
+          </button>
+          <div class="dropdown-content">
+            <a href="raspberrypi.html">O.D.A.S.H.I. Project</a>
+            <a href="webpage.html">Webpage Dev Log</a>
+            <a href="tailscale.html">Tailscale Tutorials</a>
+          </div>
+        </div>
 
+        <div class="dropdown">
+          <button type="button" onclick="window.location.href = 'bio.html'">
+            whoami
+          </button>
+          <div class="dropdown-content">
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </div>
+
+        <button
+          id="dm-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark mode"
+        >
+          🌙
+        </button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>Welcome to River City Cyber!</h1>
+      <div class="data-card intro-card">
+        <p>
+          River City Cyber is a fun domain name I came up with to host my own
+          webpage. Right now, I am using it to learn front end development, so
+          feel free to hang out, explore, and let me know what you think :)
+        </p>
+      </div>
+
+      <section id="projects">
+        <h2 class="section-display">PROJECTS &amp; LEARNINGS</h2>
+        <div class="card-grid">
+          <article class="data-card">
+            <h3 class="card-header">
+              <span class="card-indicator"></span>HOME LAB INFRASTRUCTURE
+            </h3>
+            <p>
+              1. Dell DL4300 server running <strong>Proxmox</strong> Type-1
+              Hypervisor. Originally designed as a secure training environment
+              for the UNF National CCDC team, now runs my home lab.
+            </p>
+            <p>
+              2. M2 Mac Mini running Docker, VSCode, Tabby, and Tailscale. The
+              every day powerhouse used for remote access of the lab environment
+              and web development.
+            </p>
+            <div class="project-tech">
+              STACK: Proxmox, Linux (Ubuntu), VLANs, Virtualization, Dockers,
+              Plex
+            </div>
+            <a href="homelab.html" class="boost-button">View Architecture</a>
+          </article>
+
+          <article class="data-card">
+            <h3 class="card-header">
+              <span class="card-indicator"></span>PROJECT O.D.A.S.H.I.
+            </h3>
+            <p class="project-subtitle">
+              Onboard Diagnostics Assistant Serving Helpful Information
+            </p>
+            <p>
+              Raspberry Pi 5 touchscreen with CAN-Bus telemetry, Apple CarPlay
+              and a future on-board AI assistant.
+            </p>
+            <div class="project-phases">
+              <strong>&gt;&gt; PHASE 1:</strong> Custom Apple CarPlay &amp;
+              dash-cam capture<br />
+              <strong>&gt;&gt; PHASE 2:</strong> CAN-Bus readings and overlay<br />
+              <strong>&gt;&gt; PHASE 3:</strong> Onboard AI integration
+            </div>
+            <div class="project-tech">
+              STACK: Python • Bash • CAN-Bus Protocol • Raspberry Pi 5 •
+              JavaScript
+            </div>
+            <a
+              href="https://github.com/RiverCityCyber/raspberry_pi_car"
+              target="_blank"
+              rel="noopener"
+              class="boost-button"
+              >View GitHub</a
+            >
+          </article>
+
+          <article class="data-card">
+            <h3 class="card-header">
+              <span class="card-indicator"></span>AUTOMATED NETWORK DEPLOYMENT
+            </h3>
+            <p>
+              Developed <strong>Bash scripts</strong> to streamline branch
+              office network provisioning at IQ Fiber. Reduced manual
+              configuration time significantly.
+            </p>
+            <p>
+              Automated employee onboarding via Pipedream and Notion APIs.
+              Engineered Tailscale VPN implementation on Mikrotik routers.
+            </p>
+            <div class="project-tech">
+              STACK: Bash, API Integration, Mikrotik, Tailscale
+            </div>
+            <a
+              href="https://github.com/RiverCityCyber/homelab_deploy"
+              target="_blank"
+              rel="noopener"
+              class="boost-button"
+              >View Scripts</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2 class="section-display">CORE CAPABILITIES</h2>
+        <div class="data-card stack">
+          <div class="skill-item">
+            <div class="skill-label">
+              <span>Network Security &amp; Routing</span><span>95%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="95%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-label">
+              <span>Python &amp; Bash Scripting</span><span>85%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="85%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-label">
+              <span>Incident Response (CCDC/NCL)</span><span>90%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="90%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-label">
+              <span>Virtualization (Proxmox/Xen)</span><span>80%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="80%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-label">
+              <span>Java &amp; Web Dev (HTML/CSS/JS)</span><span>75%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="75%"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="mt-7">
+        <h2 class="section-display">ESTABLISH UPLINK</h2>
+        <div class="data-card text-center">
+          <p>Any questions? Let's discuss.</p>
+          <div
+            class="cluster"
+            style="justify-content: center; margin-top: var(--space-4)"
+          >
+            <a href="mailto:outreach@rivercitycyber.com" class="boost-button"
+              >Send Transmission</a
+            >
+            <a
+              href="https://www.linkedin.com/in/connor-g-638b93233"
+              target="_blank"
+              rel="noopener"
+              class="boost-button"
+              data-variant="orange"
+              >LinkedIn Profile</a
+            >
+            <a
+              href="https://rivercitycyber.com"
+              target="_blank"
+              rel="noopener"
+              class="boost-button"
+              data-variant="nitro"
+              >Main Site</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Connor G. | RiverCityCyber</p>
+      <p class="footer-status">// SYSTEM STATUS: ONLINE</p>
+    </footer>
+  </body>
 </html>

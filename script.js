@@ -1,30 +1,56 @@
-/* Dark Mode JS */
+/* Dark Mode Toggle */
 document.addEventListener('DOMContentLoaded', function () {
     const toggle = document.getElementById('dm-toggle');
-    let mode = localStorage.mode || (window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light');
+    const storedMode = localStorage.getItem('mode');
 
     function applyMode(selectedMode) {
-        if (selectedMode === 'dark') {
-            document.body.classList.add('dark-mode');
-            document.body.classList.remove('light-mode');
-            toggle.textContent = '☀️';
-        } else {
-            document.body.classList.add('light-mode');
-            document.body.classList.remove('dark-mode');
-            toggle.textContent = '🌙';
-        }
-        mode = selectedMode;
-        localStorage.mode = selectedMode;
+        document.body.classList.toggle('dark-mode', selectedMode === 'dark');
+        document.body.classList.toggle('light-mode', selectedMode === 'light');
+        toggle.textContent = selectedMode === 'dark' ? '☀️' : '🌙';
     }
 
-    applyMode(mode);
+    // Only force a class if the user has already made an explicit choice.
+    // Otherwise, leave both classes off so the CSS `prefers-color-scheme`
+    // fallback can take over automatically.
+    if (storedMode === 'dark' || storedMode === 'light') {
+        applyMode(storedMode);
+    } else {
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        toggle.textContent = systemPrefersDark ? '☀️' : '🌙';
+    }
 
     toggle.addEventListener('click', function () {
-        const newMode = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+        const currentlyDark = document.body.classList.contains('dark-mode');
+        const newMode = currentlyDark ? 'light' : 'dark';
         applyMode(newMode);
+        localStorage.setItem('mode', newMode);
     });
 });
-/* End Dark Mode JS */
+/* End Dark Mode Toggle */
+
+/* Skill Bar Animation */
+document.addEventListener('DOMContentLoaded', function () {
+    const skillFills = document.querySelectorAll('.skill-fill[data-width]');
+
+    if (!skillFills.length) return;
+
+    // Animate bars when they scroll into view, rather than all at once on load.
+    const observer = new IntersectionObserver(
+        (entries, obs) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const fill = entry.target;
+                    fill.style.width = fill.dataset.width;
+                    obs.unobserve(fill);
+                }
+            });
+        },
+        { threshold: 0.4 }
+    );
+
+    skillFills.forEach((fill) => observer.observe(fill));
+});
+/* End Skill Bar Animation */
 
 /* Code Block Copy Button */
 document.addEventListener('DOMContentLoaded', function () {
