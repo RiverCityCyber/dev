@@ -106,3 +106,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 /* End Code Block Copy Button */
+/* start 3D model viewer */
+const modelViewer = document.querySelector('model-viewer');
+
+if (modelViewer) {
+  const stopAutoRotate = () => {
+    modelViewer.removeAttribute('auto-rotate');
+  };
+
+  modelViewer.addEventListener('pointerdown', stopAutoRotate, { once: true });
+  modelViewer.addEventListener('wheel', stopAutoRotate, { once: true });
+}
+/* end 3D model viewer */
