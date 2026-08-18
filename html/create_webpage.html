@@ -16,27 +16,47 @@
 </head> 
 
 <body class="center">
-    <div class="navbar">
+    <span class="header-hud__brand">River City Cyber</span>
+
+      <nav class="header-hud__nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="outreach.html">Contact Me</a>
+
         <div class="dropdown">
-            <button id="whoami" class="dropbtn" onclick="window.location.href='projects.html'">Projects</button>
-            <div class="dropdown-content">
-                <a href="raspberrypi.html">Raspberry Pi CAN-Bus System</a>
-                <a href="webpage.html">RiverCityCyber Webpage</a>
-                <a href="tailscale.html">Tailscale Tutorials</a>
-            </div>
+          <button
+            type="button"
+            onclick="window.location.href = 'projects.html'"
+          >
+            Projects
+          </button>
+          <div class="dropdown-content">
+            <a href="raspberrypi.html">O.D.A.S.H.I.</a>
+            <a href="webpage.html">Webpage Dev Log</a>
+            <a href="tailscale.html">Tailscale Tutorials</a>
+          </div>
         </div>
+
         <div class="dropdown">
-            <button id="whoami" class="dropbtn" onclick="window.location.href='bio.html'">whoami</button>
-            <div class="dropdown-content">
-                <a href="#about.html">About</a>
-                <a href="blog.html">Blog</a>
-                <a href="#gallery.html">Gallery</a>
-            </div>
+          <button type="button" onclick="window.location.href = 'bio.html'">
+            whoami
+          </button>
+          <div class="dropdown-content">
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
         </div>
-        <button id="dm-toggle" class="drk-mode-btn">🌙</button>
-    </div>
+
+        <button
+          id="dm-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark mode"
+        >
+          🌙
+        </button>
+      </nav>
+    </header>
 
     <h1>The Simple $10 Webpage</h1>
     <div>
