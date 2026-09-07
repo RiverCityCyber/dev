@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Limelight&family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap"
     />
     <link rel="stylesheet" href="../home.css" />
     <script src="../script.js" defer></script>
@@ -100,25 +100,24 @@
           max-camera-orbit="auto auto 200%"
         >
         </model-viewer>
-        <p class="hint">// drag = rotate · scroll = zoom · shift+drag = pan</p>
       </div>
       <section class="data-card">
         <h2 class="card-header">
-          <span class="card-indicator"></span>PROJECT ODASHI
+          <span class="card-indicator"></span>PROJECT O.D.A.S.H.I.
         </h2>
         <p>
-          Project ODASHI (Onboard Diagnostics Assistant Serving Helpful
-          Information) is a Raspberry Pi-based CAN-Bus reader and dash-cam
-          system. It is designed to be a cost-effective solution for handling a
+          Project O.D.A.S.H.I. (Onboard Diagnostics Assistant Serving Helpful
+          Information) is a Raspberry Pi 5 based CAN-Bus/K-line reader and
+          dash-cam system. It is designed to be a custom solution for handling a
           variety of smart-car features in a secure manner. The system utilizes
-          a Raspberry Pi 5, USB camera, and CAN-Bus interface to provide the
-          following features:
+          a Raspberry Pi 5, USB camera, buck converter, audio DAC, and CAN-Bus
+          interface to provide the following features:
         </p>
         <ol>
           <li>
             Car system diagnostics
             <ul>
-              <li>Engine utilization and performance</li>
+              <li>Engine and system performance</li>
               <li>Any error codes (such as check engine lights)</li>
               <li>Oil, coolant, and battery levels</li>
               <li>Other system data as needed</li>
@@ -127,25 +126,25 @@
           <li>Dashcam recording</li>
           <li>Apple Carplay</li>
           <li>Voice activated commands</li>
+          <li>Maintenance reminders based on odometer reading</li>
         </ol>
       </section>
 
       <section class="data-card">
         <h2 class="card-header">
-          <span class="card-indicator"></span>BUILD YOUR OWN PI ZERO DASH-CAM
+          <span class="card-indicator"></span>BUILD YOUR OWN PI DASH-CAM
         </h2>
         <ol>
-          <li>Install Raspberry Pi OS Lite on a Raspberry Pi Zero</li>
           <li>
-            Connect your USB camera of choice (I am using a Logitech Webcam)
+            Install Raspberry Pi OS Lite (or distro of choice) on a Raspberry Pi
           </li>
+          <li>Connect USB camera of choice (I am using a Logitech Webcam)</li>
           <li>Update the system (sudo apt update &amp;&amp; upgrade)</li>
           <li>
-            Run
+            Run the following to show your webcam's information
             <pre
               class="lang-shell"
             ><code class="lang-shell">v4l2-ctl --list-devices</code></pre>
-            to show your webcam's information
           </li>
           <li>
             Create the following script in /usr/local/bin/
@@ -158,35 +157,43 @@ ffmpeg -f v4l2 -input_format mjpeg -video_size 1280x720 -framerate 30 \
   -segment_atclocktime 1 -strftime 1 "dashcam_%Y%m%d_%H%M%S.mjpeg"</code></pre>
           </li>
           <li>Set the script to run on startup</li>
-          <li>
-            Install
-            <a
-              href="https://github.com/rhysmorgan134/react-carplay"
-              target="_blank"
-              rel="noopener"
-              >react-carplay</a
-            >
-          </li>
-          <li>
-            Attach a CarPlay converter from
-            <a
-              href="https://www.carlinkit.com/ccpa"
-              target="_blank"
-              rel="noopener"
-              >CarlinKit</a
-            >
-          </li>
-          <li>
-            Connect the Raspberry Pi to a touchscreen (I prefer the
-            <a
-              href="https://www.adafruit.com/product/2441"
-              target="_blank"
-              rel="noopener"
-              >Adafruit 3.5" TFT LCD</a
-            >)
-          </li>
-          <li>Start customizing to your need!</li>
+          Now you have a fully functioning dashcam that should record all video
+          while running and store locally. To expand it to the full ODASHI
+          setup, follow the next step.
         </ol>
+      </section>
+      <section class="data-card">
+        <h2 class="card-header">
+          <span class="card-indicator"></span>BUILD YOUR OWN ODASHI
+        </h2>
+        <li>
+          Install
+          <a
+            href="https://github.com/rhysmorgan134/react-carplay"
+            target="_blank"
+            rel="noopener"
+            >react-carplay</a
+          >
+        </li>
+        <li>
+          Attach a CarPlay converter from
+          <a
+            href="https://www.carlinkit.com/ccpa"
+            target="_blank"
+            rel="noopener"
+            >CarlinKit</a
+          >
+        </li>
+        <li>
+          Connect the Raspberry Pi to a touchscreen (I prefer the
+          <a
+            href="https://www.adafruit.com/product/2441"
+            target="_blank"
+            rel="noopener"
+            >Adafruit 3.5" TFT LCD</a
+          >)
+        </li>
+        <li>Start customizing to your need!</li>
       </section>
     </main>
 

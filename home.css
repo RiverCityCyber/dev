@@ -181,7 +181,7 @@ h1,
 h2 {
   font-family: var(--font-display);
   color: var(--text-heading);
-  text-align: center;
+  text-align: left;
   font-weight: 700;
 }
 
@@ -200,16 +200,30 @@ h2.section-display {
 }
 
 p {
-  max-width: var(--prose-max-width);
-  margin-inline: auto;
-  text-align: center;
+  max-width: 100%;
+  margin-inline: 0;
+  text-align: left;
 }
 
 ol {
-  margin-inline: auto;
+  margin-inline: 0;
   text-align: left;
-  list-style-position: inside;
+  list-style-position: outside;
   max-width: var(--prose-max-width);
+  padding-inline-start: var(--space-4);
+}
+table {
+  margin-inline: auto;
+  border-collapse: collapse;
+  margin-block: var(--space-3);
+  text-align: center;
+  border: 1px solid var(--accent-link);
+}
+
+th,
+td {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--accent-link);
 }
 
 /* -------------------------------------------------------------------------
