@@ -186,6 +186,41 @@
           will allow homelab user experience to stay smooth and security
           to stay tight.
         </p>
+      </div>
+      <div class="data-card">
+        <h2>Hardware</h2>
+        <p>Following principle #1, my homelab should have as few servers
+          running as possible. Therefore, I have listed what hardware I am running,
+          the approximate power draw, what services it runs, and the approximate
+          resource utilization. Resource utilization is especially useful as
+          it allows us to see if we are being constrained, or if we are properly
+          utilizing what we have running. Ideally, we would want 80-90% utilization of
+          RAM at all times and 90% utilization of CPU during peak loads.
+        </p>
+        <p></p>
+        <h3>The Always on PC</h3>
+        <p>The job of this server is to run any services that must always
+          be on. To conserve resources, I do not have a hypervisor running,
+          but am using docker containers or running as a service on Ubuntu Server.
+          I chose Ubuntu server for the simplicity, ease of use, reliability, and
+          widespread support. Just about any home service you'd like to run can run
+          on Ubuntu server.
+        </p>
+        <p></p>
+        <ul>
+          <li>CPU: Intel Core i5-7500 3.4 GHz Quad-Core Processor</li>
+          <li>Motherboard: Asus PRIME B250M-C-CSM Micro ATX LGA1151</li>
+          <li>RAM: 16GB DDR4-2400 CL 17</li>
+          <li>Storage: 256GB 2.5" SATA SSD</li>
+        </ul>
+        <p></p>
+        <p>
+          Note: I would advise for any server that
+          you have running 24/7 at home to stay away from HDDs when storage is under 2TB.
+          M.2 drives are ideal, but even SSDs will save you a lot on power cost. For video
+          storage, HDDs are ideal simply due to their better cost per byte of storage.
+        </p>
+      </div>
     </main>
   </body>
 </html>
