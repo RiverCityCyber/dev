@@ -3,18 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>River City Cyber</title>
+    <title>Connor Geller | Network Engineer &amp; Cybersecurity</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Limelight&family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap"
     />
-    <link rel="stylesheet" href="../home.css" />
-    <script src="../script.js" defer></script>
+    <link rel="stylesheet" href="/home.css" />
+    <script src="/script.js" defer></script>
   </head>
 
   <body>
+    <!-- layout:header -->
     <header class="header-hud">
       <div class="header-hud__left">
         <a
@@ -32,39 +33,31 @@
         </a>
       </div>
 
-      <span class="header-hud__brand">River City Cyber</span>
+      <a href="/" class="header-hud__brand">River City Cyber</a>
 
       <nav class="header-hud__nav" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="/html/outreach.html">Contact Me</a>
+        <a href="/" aria-current="page">Home</a>
 
         <div class="dropdown">
-          <button
-            type="button"
-            onclick="window.location.href = '/html/projects.html'"
-          >
-            Projects
-          </button>
+          <a href="/html/projects.html" class="dropdown-toggle">Projects</a>
           <div class="dropdown-content">
             <a href="/html/raspberrypi.html">O.D.A.S.H.I.</a>
-            <a href="/html/webpage.html">Webpage Dev Log</a>
-            <a href="/html/tailscale.html">Tailscale Tutorials</a>
+            <a href="/html/homelab.html">Home Lab</a>
+            <a href="/html/webpage.html">This Website</a>
+            <a href="/html/tailscale.html">Tailscale on MikroTik</a>
           </div>
         </div>
 
         <div class="dropdown">
-          <button
-            type="button"
-            onclick="window.location.href = '/html/bio.html'"
-          >
-            whoami
-          </button>
+          <a href="/html/bio.html" class="dropdown-toggle">About</a>
           <div class="dropdown-content">
-            <a href="/html/about.html">About</a>
+            <a href="/html/bio.html">About Me</a>
             <a href="/html/blog.html">Blog</a>
-            <a href="/html/gallery.html">Gallery</a>
+            <a href="/html/cyberIntro.html">Getting Started in Cyber</a>
           </div>
         </div>
+
+        <a href="/html/outreach.html">Contact</a>
 
         <button
           id="dm-toggle"
@@ -76,53 +69,47 @@
         </button>
       </nav>
     </header>
+    <!-- /layout:header -->
 
     <main class="container">
-      <h1>Welcome to River City Cyber!</h1>
-      <div class="data-card intro-card">
-        <p>
-          River City Cyber is a fun domain name I came up with to host my own
-          webpage. Right now, I am using it to learn front end development, so
-          feel free to hang out, explore, and let me know what you think :)
+      <section class="hero data-card">
+        <p class="hero__eyebrow">// NETWORK ENGINEER &middot; CYBERSECURITY</p>
+        <h1>Connor Geller</h1>
+        <p class="hero__summary">
+          Network engineer with three years of experience in ISP and enterprise
+          networks, focused on redundant and out-of-band network design,
+          security hardening, incident response and automation. This site
+          documents the personal projects I build to go deeper: embedded
+          systems, self-hosted infrastructure and secure remote access.
         </p>
-      </div>
+        <div class="cluster">
+          <a
+            href="mailto:outreach@rivercitycyber.com?subject=Resume%20request"
+            class="boost-button"
+            >Request Resume</a
+          >
+          <a
+            href="https://www.linkedin.com/in/connor-g-638b93233"
+            target="_blank"
+            rel="noopener"
+            class="boost-button"
+            data-variant="orange"
+            >LinkedIn</a
+          >
+          <a
+            href="https://github.com/RiverCityCyber"
+            target="_blank"
+            rel="noopener"
+            class="boost-button"
+            data-variant="nitro"
+            >GitHub</a
+          >
+        </div>
+      </section>
 
       <section id="projects">
-        <h2 class="section-display">PROJECTS &amp; LEARNINGS</h2>
+        <h2 class="section-display">PROJECTS</h2>
         <div class="card-grid">
-          <article class="data-card">
-            <h3 class="card-header">
-              <span class="card-indicator"></span>HOME LAB INFRASTRUCTURE
-            </h3>
-            <p>
-              1. Custom PC running <strong>Proxmox</strong> Type-1
-              Hypervisor. Runs any services that can be spun up on demand, such
-              as Plex, Netbox, Grafana, or any VMs I want to spin up for testing/development
-              of new ideas
-            </p>
-            <p>
-              2. M2 Mac Mini running Docker, VSCode, Tabby, and Tailscale. The
-              every day powerhouse used for remote access of the lab environment
-              and web development.
-            </p>
-            <p>
-              3. SFF PC as a 24x7 server to run always on services, without the 
-              power draw of the Dell DL4300.
-            </p>
-            <p>
-              4. Dell DL4300 - Originally designed by me as a secure training environment
-              for the UNF National CCDC team, now used for as a NAS and dedicated systems
-              backup.
-            </p>
-            <div class="project-tech">
-              STACK: Proxmox, Ubuntu Server, MacOS, VLANs, Virtualization, Docker,
-              Grafana, Prometheus, Netbox, UniFi OS, etc.
-            </div>
-            <a href="/html/homelab.html" class="boost-button"
-              >View Architecture</a
-            >
-          </article>
-
           <article class="data-card">
             <h3 class="card-header">
               <span class="card-indicator"></span>PROJECT O.D.A.S.H.I.
@@ -131,132 +118,252 @@
               Onboard Diagnostics Assistant Serving Helpful Information
             </p>
             <p>
-              Raspberry Pi 5 touchscreen with CAN-Bus telemetry, Apple CarPlay
-              and a future on-board AI assistant.
+              Raspberry Pi 5 head unit replacing the factory nav screen in a
+              2005 Acura MDX. Runs Apple CarPlay with live engine, tire-pressure
+              and system telemetry on screen.
             </p>
-            <div class="project-phases">
-              <h3>ROADMAP:</h3>
-              <strong>&gt;&gt; v1:</strong> <a href="/html/raspberrypi.html#software-versioning">Custom Apple CarPlay &amp; dash-cam capture</a><br />
-              <strong>&gt;&gt; v2:</strong> <a href="/html/raspberrypi.html#software-versioning">Custom Dashboard and Features</a><br />
-              <strong>&gt;&gt; v3:</strong> <a href="/html/raspberrypi.html#software-versioning">CAN-Bus readings and overlay</a><br />
-              <strong>&gt;&gt; v4:</strong> <a href="/html/raspberrypi.html#software-versioning">Motorized display opening</a><br />
-              <strong>&gt;&gt; v5:</strong> <a href="/html/raspberrypi.html#software-versioning">IR remote integration</a><br />
-              <strong>&gt;&gt; v6:</strong> <a href="/html/raspberrypi.html#software-versioning">Onboard AI integration</a>
-            </div>
+            <ul class="project-phases">
+              <li>
+                <strong>&gt;&gt; HW v1:</strong>
+                <a href="/html/raspberrypi.html#hardware-versioning"
+                  >Power, display, audio &amp; enclosure</a
+                >
+                (in progress)
+              </li>
+              <li>
+                <strong>&gt;&gt; SW v.1:</strong>
+                <a href="/html/raspberrypi.html#software-versioning"
+                  >CarPlay, audio &amp; graceful shutdown</a
+                >
+                (in progress)
+              </li>
+              <li>
+                <strong>&gt;&gt; NEXT:</strong>
+                <a href="/html/raspberrypi.html#hardware-versioning"
+                  >K-line &amp; TPMS sensors</a
+                >,
+                <a href="/html/raspberrypi.html#software-versioning"
+                  >custom dashboard</a
+                >,
+                <a href="/html/raspberrypi.html#hardware-versioning"
+                  >motorized display</a
+                >,
+                <a href="/html/raspberrypi.html#software-versioning"
+                  >local AI assistant</a
+                >
+              </li>
+            </ul>
             <div class="project-tech">
-              STACK: Python • Bash • CAN-Bus Protocol • Raspberry Pi 5 •
-              JavaScript
+              STACK: Raspberry Pi 5 • LIVI • Python • Bash • OBD-II K-line •
+              rtl_433
             </div>
-            <a
-              href="https://github.com/RiverCityCyber/raspberry_pi_car"
-              target="_blank"
-              rel="noopener"
-              class="boost-button"
-              >View GitHub</a
+            <div class="cluster">
+              <a href="/html/raspberrypi.html" class="boost-button"
+                >Project Page</a
+              >
+              <a
+                href="https://github.com/RiverCityCyber/raspberry_pi_car"
+                target="_blank"
+                rel="noopener"
+                class="boost-button"
+                data-variant="orange"
+                >View GitHub</a
+              >
+            </div>
+          </article>
+
+          <article class="data-card">
+            <h3 class="card-header">
+              <span class="card-indicator"></span>HOME LAB INFRASTRUCTURE
+            </h3>
+            <p>
+              A segmented network behind an <strong>OPNsense</strong> firewall
+              with no open ports, split into three VLANs on a MikroTik switch.
+            </p>
+            <p>
+              An always-on Ubuntu SFF server runs monitoring, secrets and
+              Wi-Fi management. A custom <strong>Proxmox</strong> host runs VMs
+              on demand, a Dell DL4300 handles storage and backups, and
+              Tailscale provides remote access.
+            </p>
+            <div class="project-tech">
+              STACK: OPNsense • MikroTik • VLANs • Proxmox • Prometheus •
+              Grafana • Vault • Tailscale
+            </div>
+            <a href="/html/homelab.html" class="boost-button"
+              >View Architecture</a
             >
           </article>
 
           <article class="data-card">
             <h3 class="card-header">
-              <span class="card-indicator"></span>AUTOMATED NETWORK DEPLOYMENT
+              <span class="card-indicator"></span>RIVERCITYCYBER.COM
             </h3>
             <p>
-              Developed <strong>Bash scripts</strong> to streamline branch
-              office network provisioning at IQ Fiber. Reduced manual
-              configuration time significantly.
+              This site: HTML, CSS and JavaScript, deployed from GitHub to Cloudflare Pages.
+              Completely cloud based with versioning control and easy rollbacks.
             </p>
             <p>
-              Automated employee onboarding via Pipedream and Notion APIs.
-              Engineered Tailscale VPN implementation on Mikrotik routers.
+              Hardened with a strict Content Security Policy (no inline
+              scripts), HSTS and locked-down browser permissions.
             </p>
             <div class="project-tech">
-              STACK: Bash, API Integration, Mikrotik, Tailscale
+              STACK: HTML • CSS • JavaScript • Python • Cloudflare Pages
             </div>
-            <a
-              href="https://github.com/RiverCityCyber/homelab_deploy"
-              target="_blank"
-              rel="noopener"
-              class="boost-button"
-              >View Scripts</a
-            >
+            <a href="/html/webpage.html" class="boost-button">Read More</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="highlights">
+        <h2 class="section-display">HIGHLIGHTS</h2>
+        <div class="card-grid">
+          <article class="data-card">
+            <h3 class="card-header">
+              <span class="card-indicator"></span>NATIONAL CCDC FINALIST
+            </h3>
+            <p>
+              Ubuntu lead for the University of North Florida's Collegiate
+              Cyber Defense team. We won the Southeast regional for the first
+              time in UNF history and advanced to Nationals as one of the top 10
+              teams in the country, defending a live business network against
+              an active red team.
+            </p>
+          </article>
+          <article class="data-card">
+            <h3 class="card-header">
+              <span class="card-indicator"></span>NATIONAL CYBER LEAGUE
+            </h3>
+            <p>
+              Ranked in the top 2% of competitors in network traffic analysis,
+              with additional work in log analysis, OSINT, cryptography and
+              digital forensics.
+            </p>
+          </article>
+          <article class="data-card">
+            <h3 class="card-header">
+              <span class="card-indicator"></span>EDUCATION
+            </h3>
+            <p>
+              <strong>University of North Florida</strong><br />
+              B.S. Information Technology, Minor in Spanish &mdash; Magna Cum
+              Laude
+            </p>
+            <p>
+              <strong>St. Johns River State College</strong><br />
+              Associate of Arts &mdash; Magna Cum Laude
+            </p>
           </article>
         </div>
       </section>
 
       <section id="skills">
-        <h2 class="section-display">CORE CAPABILITIES</h2>
-        <div class="data-card stack">
-          <div class="skill-item">
-            <div class="skill-label">
-              <span>Network Security &amp; Routing</span><span>95%</span>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill" data-width="95%"></div>
-            </div>
+        <h2 class="section-display">SKILLS</h2>
+        <div class="data-card skill-groups">
+          <div>
+            <h3 class="skill-group__title">Networking</h3>
+            <ul class="tag-list">
+              <li>TCP/IP</li>
+              <li>BGP</li>
+              <li>DNS</li>
+              <li>DHCP</li>
+              <li>VLANs</li>
+              <li>IPAM</li>
+              <li>802.1X</li>
+              <li>TLS/SSL</li>
+              <li>SNMP</li>
+              <li>ACLs</li>
+              <li>VPNs</li>
+            </ul>
           </div>
-
-          <div class="skill-item">
-            <div class="skill-label">
-              <span>Python &amp; Bash Scripting</span><span>85%</span>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill" data-width="85%"></div>
-            </div>
+          <div>
+            <h3 class="skill-group__title">Security</h3>
+            <ul class="tag-list">
+              <li>Incident Response</li>
+              <li>System Hardening</li>
+              <li>Network Traffic Analysis</li>
+              <li>Log Analysis</li>
+              <li>Secure Remote Access</li>
+            </ul>
           </div>
-
-          <div class="skill-item">
-            <div class="skill-label">
-              <span>Incident Response (CCDC/NCL)</span><span>90%</span>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill" data-width="90%"></div>
-            </div>
+          <div>
+            <h3 class="skill-group__title">Platforms &amp; Equipment</h3>
+            <ul class="tag-list">
+              <li>Proxmox</li>
+              <li>Xen Orchestra</li>
+              <li>Windows Server</li>
+              <li>Debian / Ubuntu</li>
+              <li>OPNsense</li>
+              <li>pfSense</li>
+              <li>Cisco</li>
+              <li>Juniper</li>
+              <li>MikroTik</li>
+              <li>UniFi</li>
+              <li>Nokia</li>
+              <li>Calix</li>
+              <li>WatchGuard</li>
+            </ul>
           </div>
-
-          <div class="skill-item">
-            <div class="skill-label">
-              <span>Virtualization (Proxmox/Xen)</span><span>80%</span>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill" data-width="80%"></div>
-            </div>
+          <div>
+            <h3 class="skill-group__title">Languages &amp; Automation</h3>
+            <ul class="tag-list">
+              <li>Bash</li>
+              <li>PowerShell</li>
+              <li>Python</li>
+              <li>Rust</li>
+              <li>Java</li>
+              <li>Node.js</li>
+              <li>HTML / CSS</li>
+            </ul>
           </div>
-
-          <div class="skill-item">
-            <div class="skill-label">
-              <span>Java &amp; Web Dev (HTML/CSS/JS)</span><span>75%</span>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill" data-width="75%"></div>
-            </div>
-          </div>
+          <p class="skill-groups__note">
+            Currently learning: Arista cEOS in a Proxmox lab.
+          </p>
         </div>
       </section>
 
       <section id="contact" class="mt-7">
-        <h2 class="section-display">ESTABLISH UPLINK</h2>
+        <h2 class="section-display">CONTACT</h2>
         <div class="data-card text-center">
-          <p>Any questions? Let's discuss.</p>
-          <div
-            class="cluster"
-            style="justify-content: center; margin-top: var(--space-4)">
+          <p class="text-center">
+            Open to network engineering and cybersecurity opportunities. I'm
+            happy to share my resume or talk through any of these projects.
+          </p>
+          <div class="cluster cluster--center">
             <a href="mailto:outreach@rivercitycyber.com" class="boost-button"
-              >Send an email!</a>
+              >Email Me</a
+            >
             <a
               href="https://www.linkedin.com/in/connor-g-638b93233"
               target="_blank"
               rel="noopener"
               class="boost-button"
               data-variant="orange"
-              >LinkedIn Profile</a>
+              >LinkedIn</a
+            >
           </div>
         </div>
       </section>
     </main>
 
+    <!-- layout:footer -->
     <footer>
-      <p>&copy; 2026 Connor G. | RiverCityCyber</p>
+      <p>&copy; 2026 Connor Geller | River City Cyber</p>
+      <p class="footer-links">
+        <a href="mailto:outreach@rivercitycyber.com">Email</a> &middot;
+        <a
+          href="https://www.linkedin.com/in/connor-g-638b93233"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        &middot;
+        <a href="https://github.com/RiverCityCyber" target="_blank" rel="noopener"
+          >GitHub</a
+        >
+      </p>
       <p class="footer-status">// SYSTEM STATUS: ONLINE</p>
     </footer>
+    <!-- /layout:footer -->
   </body>
 </html>

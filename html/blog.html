@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>River City Cyber</title>
+    <title>Blog | Connor Geller</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,6 +14,7 @@
     <script src="../script.js" defer></script>
   </head>
   <body>
+    <!-- layout:header -->
     <header class="header-hud">
       <div class="header-hud__left">
         <a
@@ -31,36 +32,31 @@
         </a>
       </div>
 
-      <span class="header-hud__brand">River City Cyber</span>
+      <a href="/" class="header-hud__brand">River City Cyber</a>
 
       <nav class="header-hud__nav" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="outreach.html">Contact Me</a>
+        <a href="/">Home</a>
 
         <div class="dropdown">
-          <button
-            type="button"
-            onclick="window.location.href = 'projects.html'"
-          >
-            Projects
-          </button>
+          <a href="/html/projects.html" class="dropdown-toggle">Projects</a>
           <div class="dropdown-content">
-            <a href="raspberrypi.html">O.D.A.S.H.I. Project</a>
-            <a href="webpage.html">Webpage Dev Log</a>
-            <a href="tailscale.html">Tailscale Tutorials</a>
+            <a href="/html/raspberrypi.html">O.D.A.S.H.I.</a>
+            <a href="/html/homelab.html">Home Lab</a>
+            <a href="/html/webpage.html">This Website</a>
+            <a href="/html/tailscale.html">Tailscale on MikroTik</a>
           </div>
         </div>
 
         <div class="dropdown">
-          <button type="button" onclick="window.location.href = 'bio.html'">
-            whoami
-          </button>
+          <a href="/html/bio.html" class="dropdown-toggle">About</a>
           <div class="dropdown-content">
-            <a href="about.html">About</a>
-            <a href="blog.html">Blog</a>
-            <a href="gallery.html">Gallery</a>
+            <a href="/html/bio.html">About Me</a>
+            <a href="/html/blog.html" aria-current="page">Blog</a>
+            <a href="/html/cyberIntro.html">Getting Started in Cyber</a>
           </div>
         </div>
+
+        <a href="/html/outreach.html">Contact</a>
 
         <button
           id="dm-toggle"
@@ -72,56 +68,76 @@
         </button>
       </nav>
     </header>
+    <!-- /layout:header -->
 
     <main class="container">
-      <article>
-        <h2>2026 HackSpaceCon</h2>
-        <p class="post-meta">Published on May 9th 2026 by Connor</p>
-        <p>
-          On May 8th, I had the pleasure of attending Day 1 of HackSpaceCon at
-          the Kennedy Space Center in Florida. While currently working as a Jr.
-          Network Engineer, I have not had enough exposure to the cyber security
-          community. Attending this event was a much needed refresher in how fun
-          and welcoming the cyber security community is, and how important it is
-          to attend such events whenever possible.
-        </p>
-      </article>
-      <article>
-        <h2>Setting Up VS Code</h2>
-        <p class="post-meta">Published on May 9th 2026 by Connor</p>
-        <p>
-          There are a ton of options and extensions you can install for VS Code
-          to make it the perfect coding platform for you. The following are just
-          what I have found useful.
-        </p>
-        <ul>
-          <li>
-            Prettier code formatter
-            <p>
-              Install prettier, then run Cmd + Shift + P on MacOS to search.
-              Type in "[html]": {"editor.defaultFormatter":
-              "esbenp.prettier-vscode", "editor.formatOnSave": true}. Save, and
-              now when you save a HMTL file, Prettier will automatically format
-              it for you. The same can be done without Prettier, but I enjoy how
-              it formats.
-            </p>
-          </li>
-        </ul>
-      </article>
-      <article>
-        <h2><a href="autobox.html">Setting Up an AutoBox on AWS</a></h2>
-        <p>
-          An autobox is a VM or Docker container project that I am working on,
-          where the purpose is to have a cloud hosted machine that will scan
-          your public facing machines for any vulnerabilities and notify you of
-          any issues.
-        </p>
-      </article>
+      <h1>Blog</h1>
+      <div class="stack">
+        <article class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>HACKSPACECON 2026
+          </h2>
+          <p class="post-meta">May 9, 2026</p>
+          <p>
+            On May 8th I attended day one of HackSpaceCon at the Kennedy Space
+            Center in Florida. My day-to-day work is mostly network
+            engineering, so it was valuable to spend a day with the wider
+            security community. It reminded me how welcoming that community is
+            and how much there is to learn from it, and it reinforced my goal
+            of attending events like this whenever I can.
+          </p>
+        </article>
+
+        <article class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>SETTING UP VS CODE
+          </h2>
+          <p class="post-meta">May 9, 2026</p>
+          <p>
+            VS Code has a huge extension ecosystem. One setting I rely on is
+            format-on-save with Prettier, which keeps HTML consistent without
+            any extra effort.
+          </p>
+          <ol>
+            <li>Install the Prettier extension (esbenp.prettier-vscode).</li>
+            <li>
+              Open the Command Palette (<kbd>Cmd</kbd> + <kbd>Shift</kbd> +
+              <kbd>P</kbd> on macOS) and run
+              <em>Preferences: Open User Settings (JSON)</em>.
+            </li>
+            <li>
+              Add the following and save:
+              <pre class="lang-json"><code class="lang-json">"[html]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
+}</code></pre>
+            </li>
+          </ol>
+          <p>
+            Every HTML file is now formatted automatically when you save it.
+          </p>
+        </article>
+      </div>
     </main>
 
+    <!-- layout:footer -->
     <footer>
-      <p>&copy; 2026 Connor G. | RiverCityCyber</p>
+      <p>&copy; 2026 Connor Geller | River City Cyber</p>
+      <p class="footer-links">
+        <a href="mailto:outreach@rivercitycyber.com">Email</a> &middot;
+        <a
+          href="https://www.linkedin.com/in/connor-g-638b93233"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        &middot;
+        <a href="https://github.com/RiverCityCyber" target="_blank" rel="noopener"
+          >GitHub</a
+        >
+      </p>
       <p class="footer-status">// SYSTEM STATUS: ONLINE</p>
     </footer>
+    <!-- /layout:footer -->
   </body>
 </html>

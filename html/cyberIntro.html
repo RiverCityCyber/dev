@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Intro to Cybersecurity</title>
+    <title>Getting Started in Cybersecurity | Connor Geller</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,6 +14,7 @@
     <script src="../script.js" defer></script>
   </head>
   <body>
+    <!-- layout:header -->
     <header class="header-hud">
       <div class="header-hud__left">
         <a
@@ -31,36 +32,31 @@
         </a>
       </div>
 
-      <span class="header-hud__brand">River City Cyber</span>
+      <a href="/" class="header-hud__brand">River City Cyber</a>
 
       <nav class="header-hud__nav" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="outreach.html">Contact Me</a>
+        <a href="/">Home</a>
 
         <div class="dropdown">
-          <button
-            type="button"
-            onclick="window.location.href = 'projects.html'"
-          >
-            Projects
-          </button>
+          <a href="/html/projects.html" class="dropdown-toggle">Projects</a>
           <div class="dropdown-content">
-            <a href="raspberrypi.html">O.D.A.S.H.I.</a>
-            <a href="webpage.html">Webpage Dev Log</a>
-            <a href="tailscale.html">Tailscale Tutorials</a>
+            <a href="/html/raspberrypi.html">O.D.A.S.H.I.</a>
+            <a href="/html/homelab.html">Home Lab</a>
+            <a href="/html/webpage.html">This Website</a>
+            <a href="/html/tailscale.html">Tailscale on MikroTik</a>
           </div>
         </div>
 
         <div class="dropdown">
-          <button type="button" onclick="window.location.href = 'bio.html'">
-            whoami
-          </button>
+          <a href="/html/bio.html" class="dropdown-toggle">About</a>
           <div class="dropdown-content">
-            <a href="about.html">About</a>
-            <a href="blog.html">Blog</a>
-            <a href="gallery.html">Gallery</a>
+            <a href="/html/bio.html">About Me</a>
+            <a href="/html/blog.html">Blog</a>
+            <a href="/html/cyberIntro.html" aria-current="page">Getting Started in Cyber</a>
           </div>
         </div>
+
+        <a href="/html/outreach.html">Contact</a>
 
         <button
           id="dm-toggle"
@@ -72,84 +68,128 @@
         </button>
       </nav>
     </header>
+    <!-- /layout:header -->
 
     <main class="container">
-      <h1>How To Get Started In Cyber Security</h1>
+      <h1>Getting Started in Cybersecurity</h1>
 
-      <div>
-        <p>
-          The world of cybersecurity is incredibly vast and ever changing.
-          Getting started in such a torrent of information can be daunting, but
-          I am here to help. Below you can find a list of resources I personally
-          find useful.
-        </p>
-        <p>
-          It is incredibly important for anyone wishing to start down the
-          cybersecurity path to understand the basics of computers and computer
-          networking. All internet traffic abides by the same rules, and
-          understanding those rules means you can understand how to exploit
-          them. If you are unfamiliar with computer networking, I highly
-          recommend following my steps below.
-        </p>
-        <ol>
-          <li>Cisco Certified Network Associate (CCNA)</li>
-          <li>CompTIA Security+</li>
-          <li>Certified Ethical Hacker (CEH)</li>
-          <li>Certified Information Systems Security Personnel (CISSP)</li>
-        </ol>
+      <div class="stack">
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>START WITH THE FUNDAMENTALS
+          </h2>
+          <p>
+            The world of cybersecurity is incredibly vast and ever changing.
+            Getting started in such a torrent of information can be daunting,
+            and a clear path helps. Below are the steps and resources I
+            recommend.
+          </p>
+          <p>
+            It is essential for anyone wishing to start down the cybersecurity
+            path to understand the basics of computers and computer networking.
+            All internet traffic abides by the same rules, and understanding
+            those rules means you can understand how to exploit them. If you
+            are unfamiliar with computer networking, I highly recommend the
+            following certification path.
+          </p>
+          <ol>
+            <li>Cisco Certified Network Associate (CCNA)</li>
+            <li>CompTIA Security+</li>
+            <li>Certified Ethical Hacker (CEH)</li>
+            <li>Certified Information Systems Security Professional (CISSP)</li>
+          </ol>
+        </section>
 
-        <h2>Get Involved!</h2>
-        <p>
-          The cybersecurity community is incredibly welcoming and helpful.
-          Online studying and endless hours of coding are a cornerstone of the
-          field, but so is collaboration and teamwork. Chances are that if you
-          land a job in cybersecurity, you will be working with a diverse team
-          of experts.
-        </p>
-        <p>
-          One of the best ways to grow and discover new fields within computing
-          is by attending conferences. I personally have enjoyed the following
-          conferences:
-        </p>
-        <ul>
-          <li>
-            <a href="https://cyberbay.org/" target="_blank" rel="noopener"
-              >CyberBay</a
-            >
-          </li>
-          <li>
-            <a href="https://www.bsidesjax.org/" target="_blank" rel="noopener"
-              >BSides JAX</a
-            >
-          </li>
-        </ul>
-      </div>
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>GET INVOLVED
+          </h2>
+          <p>
+            The cybersecurity community is incredibly welcoming and helpful.
+            Online studying and endless hours of coding are a cornerstone of
+            the field, but so is collaboration and teamwork. Chances are that
+            if you land a job in cybersecurity, you will be working with a
+            diverse team of experts.
+          </p>
+          <p>
+            One of the best ways to grow and discover new fields within
+            computing is by attending conferences. I personally have enjoyed
+            the following conferences:
+          </p>
+          <ul>
+            <li>
+              <a href="https://cyberbay.org/" target="_blank" rel="noopener"
+                >CyberBay</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.bsidesjax.org/"
+                target="_blank"
+                rel="noopener"
+                >BSides JAX</a
+              >
+            </li>
+          </ul>
+        </section>
 
-      <div class="resources">
-        <h2>Resources</h2>
-        <ul>
-          <li>
-            <a href="https://tryhackme.com" target="_blank" rel="noopener"
-              >Try Hack Me</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://developers.cloudflare.com/"
-              target="_blank"
-              rel="noopener"
-              >Cloudflare Docs</a
-            >
-          </li>
-          <li>OverTheWire</li>
-          <li>Professor Messor</li>
-        </ul>
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>RESOURCES
+          </h2>
+          <ul>
+            <li>
+              <a href="https://tryhackme.com" target="_blank" rel="noopener"
+                >TryHackMe</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developers.cloudflare.com/"
+                target="_blank"
+                rel="noopener"
+                >Cloudflare Docs</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://overthewire.org/wargames/"
+                target="_blank"
+                rel="noopener"
+                >OverTheWire</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.professormesser.com/"
+                target="_blank"
+                rel="noopener"
+                >Professor Messer</a
+              >
+            </li>
+          </ul>
+        </section>
       </div>
     </main>
 
+    <!-- layout:footer -->
     <footer>
-      <p>&copy; 2026 Connor G. | RiverCityCyber</p>
+      <p>&copy; 2026 Connor Geller | River City Cyber</p>
+      <p class="footer-links">
+        <a href="mailto:outreach@rivercitycyber.com">Email</a> &middot;
+        <a
+          href="https://www.linkedin.com/in/connor-g-638b93233"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        &middot;
+        <a href="https://github.com/RiverCityCyber" target="_blank" rel="noopener"
+          >GitHub</a
+        >
+      </p>
       <p class="footer-status">// SYSTEM STATUS: ONLINE</p>
     </footer>
+    <!-- /layout:footer -->
   </body>
 </html>
