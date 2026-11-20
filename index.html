@@ -122,16 +122,37 @@
               2005 Acura MDX. Runs Apple CarPlay with live engine, tire-pressure
               and system telemetry on screen.
             </p>
-            <div class="project-phases">
-              <strong>&gt;&gt; DONE:</strong> CarPlay on the Pi via LIVI,
-              sunlight-readable 7" display selected<br />
-              <strong>&gt;&gt; PHASE 1:</strong> 12V test bench + Pi health
-              telemetry<br />
-              <strong>&gt;&gt; PHASE 2:</strong> OBD-II over K-line (ISO
-              9141-2)<br />
-              <strong>&gt;&gt; PHASE 3:</strong> TPMS via RTL-SDR, then voice
-              assistant
-            </div>
+            <ul class="project-phases">
+              <li>
+                <strong>&gt;&gt; HW v1:</strong>
+                <a href="/html/raspberrypi.html#hardware-versioning"
+                  >Power, display, audio &amp; enclosure</a
+                >
+                (in progress)
+              </li>
+              <li>
+                <strong>&gt;&gt; SW v.1:</strong>
+                <a href="/html/raspberrypi.html#software-versioning"
+                  >CarPlay, audio &amp; graceful shutdown</a
+                >
+                (in progress)
+              </li>
+              <li>
+                <strong>&gt;&gt; NEXT:</strong>
+                <a href="/html/raspberrypi.html#hardware-versioning"
+                  >K-line &amp; TPMS sensors</a
+                >,
+                <a href="/html/raspberrypi.html#software-versioning"
+                  >custom dashboard</a
+                >,
+                <a href="/html/raspberrypi.html#hardware-versioning"
+                  >motorized display</a
+                >,
+                <a href="/html/raspberrypi.html#software-versioning"
+                  >local AI assistant</a
+                >
+              </li>
+            </ul>
             <div class="project-tech">
               STACK: Raspberry Pi 5 • LIVI • Python • Bash • OBD-II K-line •
               rtl_433
@@ -160,9 +181,10 @@
               with no open ports, split into three VLANs on a MikroTik switch.
             </p>
             <p>
-              An always-on Ubuntu server runs monitoring, secrets and Wi-Fi
-              management. A Dell DL4300 <strong>Proxmox</strong> host runs
-              VMs on demand, and Tailscale provides remote access.
+              An always-on Ubuntu SFF server runs monitoring, secrets and
+              Wi-Fi management. A custom <strong>Proxmox</strong> host runs VMs
+              on demand, a Dell DL4300 handles storage and backups, and
+              Tailscale provides remote access.
             </p>
             <div class="project-tech">
               STACK: OPNsense • MikroTik • VLANs • Proxmox • Prometheus •

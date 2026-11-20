@@ -177,6 +177,11 @@ body::before {
   opacity: 0.15;
 }
 
+/* In-page anchors (e.g. #software-versioning) land below the fixed header */
+[id] {
+  scroll-margin-top: calc(var(--header-height) + var(--space-3));
+}
+
 h1,
 h2 {
   font-family: var(--font-display);
@@ -487,6 +492,7 @@ td {
 }
 
 .project-phases {
+  list-style: none;
   margin-block: var(--space-3);
   font-size: var(--text-sm);
   line-height: 1.8;
@@ -643,7 +649,7 @@ kbd {
 
 .net-diagram svg {
   width: 100%;
-  min-width: 640px;
+  min-width: 720px;
   height: auto;
 }
 

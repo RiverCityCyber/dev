@@ -224,39 +224,97 @@
           </p>
         </section>
 
-        <section class="data-card">
+        <section class="data-card" id="roadmap">
           <h2 class="card-header">
-            <span class="card-indicator"></span>ROADMAP
+            <span class="card-indicator"></span>ROADMAP &amp; VERSIONING
+          </h2>
+          <p>
+            Hardware and software are versioned together as
+            <code>vX.Y.Z</code>:
+          </p>
+          <ul class="notes-list">
+            <li><strong>X</strong> &mdash; a new hardware release</li>
+            <li><strong>Y</strong> &mdash; a new software release</li>
+            <li><strong>Z</strong> &mdash; software or hardware patches</li>
+          </ul>
+          <p class="status-line">
+            [x] done &nbsp; [&gt;] in progress &nbsp; [ ] planned
+          </p>
+        </section>
+
+        <section class="data-card" id="hardware-versioning">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>HARDWARE VERSIONS
           </h2>
           <ul class="roadmap">
-            <li data-state="done">Disconnect the factory navigation system</li>
-            <li data-state="done">
-              Choose a sunlight-readable touchscreen
-            </li>
-            <li data-state="done">
-              Install LIVI on the Pi and flash the CarPlay dongle
-            </li>
             <li data-state="active">
-              Build the 12V test bench (fuse, CarPiHAT, buck converter,
-              display)
+              <strong>v1.x.x &middot; Power, Display, Audio, Enclosure</strong>
+              &mdash; Power the Raspberry Pi 5 from the car, with the
+              touchscreen, audio and an enclosure that keeps proper airflow.
+              The basics, and the most demanding version to get right.
+              Display selected; 12V test bench in progress.
             </li>
+            <li data-state="planned">
+              <strong>v2.x.x &middot; Sensors</strong> &mdash; Add a K-line
+              OBD-II reader and TPMS (tire pressure) radio, feeding live
+              readings to the display.
+            </li>
+            <li data-state="planned">
+              <strong>v3.x.x &middot; Hinged Display</strong> &mdash; Let the
+              display open and close on a hinge with a push-push latch, so I
+              can reach the Pi without removing trim pieces. A precursor to the
+              motorized version.
+            </li>
+            <li data-state="planned">
+              <strong>v4.x.x &middot; Motorized Display</strong> &mdash; Drive
+              the hinge with a motor for easier access to the Pi.
+            </li>
+            <li data-state="planned">
+              <strong>v5.x.x &middot; IR Remote</strong> &mdash; Add an IR
+              receiver so an Apple IR remote can control the display and
+              system.
+            </li>
+            <li data-state="planned">
+              <strong>v6.x.x &middot; Local AI Module</strong> &mdash; Add an AI
+              accelerator to run small models on board for voice commands,
+              automation and diagnostics.
+            </li>
+          </ul>
+        </section>
+
+        <section class="data-card" id="software-versioning">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>SOFTWARE VERSIONS
+          </h2>
+          <ul class="roadmap">
             <li data-state="active">
-              <strong>Phase 1:</strong> boot-time sender for Pi temperature, CPU
-              and RAM, with a new LIVI dashboard panel
+              <strong>vX.1.x &middot; CarPlay, Audio, Power Control</strong>
+              &mdash; The essentials: CarPlay, Bluetooth audio, graceful
+              shutdown and display brightness control. CarPlay is running
+              through LIVI; graceful shutdown is next.
             </li>
             <li data-state="planned">
-              <strong>Phase 2:</strong> K-line OBD-II adapter, then coolant,
-              RPM, speed, throttle, engine load and voltage
+              <strong>vX.2.x &middot; Custom Dashboard</strong> &mdash; A
+              dashboard with maintenance reminders and a settings page.
             </li>
             <li data-state="planned">
-              <strong>Phase 3:</strong> tire pressures via RTL-SDR +
-              <code>rtl_433</code>
+              <strong>vX.3.x &middot; K-line Diagnostics</strong> &mdash; A
+              diagnostics page with live sensor readings over ISO 9141-2.
             </li>
             <li data-state="planned">
-              Transmission temperature via a thermistor and an ADS1115 ADC
+              <strong>vX.4.x &middot; Bluetooth Audio Display</strong> &mdash;
+              Show Bluetooth audio without relying on CarPlay, with an
+              equalizer and vehicle graphics.
             </li>
             <li data-state="planned">
-              Dashcam, steering-wheel buttons and an onboard voice assistant
+              <strong>vX.5.x &middot; IR Remote Support</strong> &mdash; Software
+              support for the IR remote.
+            </li>
+            <li data-state="planned">
+              <strong>vX.6.x &middot; Local AI Assistant</strong> &mdash;
+              Push-to-talk voice assistant that can read out diagnostics and
+              answer general questions, running fully offline with no internet
+              access.
             </li>
           </ul>
           <a
