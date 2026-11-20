@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>River City Cyber</title>
+    <title>About | Connor Geller</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,6 +14,7 @@
     <script src="../script.js" defer></script>
   </head>
   <body>
+    <!-- layout:header -->
     <header class="header-hud">
       <div class="header-hud__left">
         <a
@@ -31,36 +32,31 @@
         </a>
       </div>
 
-      <span class="header-hud__brand">River City Cyber</span>
+      <a href="/" class="header-hud__brand">River City Cyber</a>
 
       <nav class="header-hud__nav" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="outreach.html">Contact Me</a>
+        <a href="/">Home</a>
 
         <div class="dropdown">
-          <button
-            type="button"
-            onclick="window.location.href = 'projects.html'"
-          >
-            Projects
-          </button>
+          <a href="/html/projects.html" class="dropdown-toggle">Projects</a>
           <div class="dropdown-content">
-            <a href="raspberrypi.html">O.D.A.S.H.I.</a>
-            <a href="webpage.html">Webpage Dev Log</a>
-            <a href="tailscale.html">Tailscale Tutorials</a>
+            <a href="/html/raspberrypi.html">O.D.A.S.H.I.</a>
+            <a href="/html/homelab.html">Home Lab</a>
+            <a href="/html/webpage.html">This Website</a>
+            <a href="/html/tailscale.html">Tailscale on MikroTik</a>
           </div>
         </div>
 
         <div class="dropdown">
-          <button type="button" onclick="window.location.href = 'bio.html'">
-            whoami
-          </button>
+          <a href="/html/bio.html" aria-current="page" class="dropdown-toggle">About</a>
           <div class="dropdown-content">
-            <a href="about.html">About</a>
-            <a href="blog.html">Blog</a>
-            <a href="gallery.html">Gallery</a>
+            <a href="/html/bio.html">About Me</a>
+            <a href="/html/blog.html">Blog</a>
+            <a href="/html/cyberIntro.html">Getting Started in Cyber</a>
           </div>
         </div>
+
+        <a href="/html/outreach.html">Contact</a>
 
         <button
           id="dm-toggle"
@@ -72,42 +68,67 @@
         </button>
       </nav>
     </header>
+    <!-- /layout:header -->
 
     <main class="container">
-      <h1>An Intro to the Developer</h1>
+      <h1>About Me</h1>
       <div class="data-card">
-        <p>
-          This is Connor's webpage! Things are under development right now, but
-          you're welcome to hang around.
-        </p>
-        <p>
-          If you want to join me on my webpage building adventure, please see
-          the outreach page.
-        </p>
         <img
           src="../images/connor.jpg"
-          alt="Connor's picture"
-          style="
-            width: 200px;
-            height: auto;
-            border-radius: 50%;
-            display: block;
-            margin: var(--space-4) auto;
-          "
+          alt="Portrait of Connor Geller"
+          class="portrait"
+          width="200"
         />
         <p>
-          My name is Connor, and I am an aspiring cybersecurity professional.
-          With multiple years of experience in networking, I am currently
-          teaching myself full stack development. I hope to use this webpage to
-          showcase my skills, projects, and interests in the field of
-          cybersecurity.
+          I'm Connor Geller, a network engineer with three years of experience in ISP and enterprise networks. My work
+          centers on redundant and out-of-band network design, security
+          hardening, incident response and automation with Bash and
+          PowerShell.
+        </p>
+        <p>
+          I earned a B.S. in Information Technology with a minor in Spanish
+          from the University of North Florida, graduating Magna Cum Laude. At
+          UNF I was the Ubuntu lead on our Collegiate Cyber Defense team, which
+          won the Southeast regional for the first time in school history and
+          advanced to Nationals. That competition taught me to defend a network
+          from the ground up: get the fundamentals like credential management
+          right before reaching for IPS and SIEM tooling.
+        </p>
+        <p>
+          Outside of work, I build projects that push me into areas my day job
+          doesn't cover: embedded systems and Rust with
+          <a href="raspberrypi.html">Project O.D.A.S.H.I.</a>, self-hosted
+          infrastructure in my <a href="homelab.html">home lab</a>, and
+          front-end development and web security with
+          <a href="webpage.html">this website</a>.
+        </p>
+        <p>
+          In 2023 I completed my Spanish minor with a month-long immersion in
+          Spain, living with a host family who spoke only Spanish. Adapting to
+          a new problem every day there is a lot like troubleshooting a network
+          you've never seen before.
         </p>
       </div>
     </main>
 
+    <!-- layout:footer -->
     <footer>
-      <p>&copy; 2026 Connor G. | RiverCityCyber</p>
+      <p>&copy; 2026 Connor Geller | River City Cyber</p>
+      <p class="footer-links">
+        <a href="mailto:outreach@rivercitycyber.com">Email</a> &middot;
+        <a
+          href="https://www.linkedin.com/in/connor-g-638b93233"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        &middot;
+        <a href="https://github.com/RiverCityCyber" target="_blank" rel="noopener"
+          >GitHub</a
+        >
+      </p>
       <p class="footer-status">// SYSTEM STATUS: ONLINE</p>
     </footer>
+    <!-- /layout:footer -->
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>River City Cyber</title>
+    <title>Projects | Connor Geller</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,6 +14,7 @@
     <script src="../script.js" defer></script>
   </head>
   <body>
+    <!-- layout:header -->
     <header class="header-hud">
       <div class="header-hud__left">
         <a
@@ -31,36 +32,31 @@
         </a>
       </div>
 
-      <span class="header-hud__brand">River City Cyber</span>
+      <a href="/" class="header-hud__brand">River City Cyber</a>
 
       <nav class="header-hud__nav" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="outreach.html">Contact Me</a>
+        <a href="/">Home</a>
 
         <div class="dropdown">
-          <button
-            type="button"
-            onclick="window.location.href = 'projects.html'"
-          >
-            Projects
-          </button>
+          <a href="/html/projects.html" aria-current="page" class="dropdown-toggle">Projects</a>
           <div class="dropdown-content">
-            <a href="raspberrypi.html">O.D.A.S.H.I.</a>
-            <a href="webpage.html">Webpage Dev Log</a>
-            <a href="tailscale.html">Tailscale Tutorials</a>
+            <a href="/html/raspberrypi.html">O.D.A.S.H.I.</a>
+            <a href="/html/homelab.html">Home Lab</a>
+            <a href="/html/webpage.html">This Website</a>
+            <a href="/html/tailscale.html">Tailscale on MikroTik</a>
           </div>
         </div>
 
         <div class="dropdown">
-          <button type="button" onclick="window.location.href = 'bio.html'">
-            whoami
-          </button>
+          <a href="/html/bio.html" class="dropdown-toggle">About</a>
           <div class="dropdown-content">
-            <a href="about.html">About</a>
-            <a href="blog.html">Blog</a>
-            <a href="gallery.html">Gallery</a>
+            <a href="/html/bio.html">About Me</a>
+            <a href="/html/blog.html">Blog</a>
+            <a href="/html/cyberIntro.html">Getting Started in Cyber</a>
           </div>
         </div>
+
+        <a href="/html/outreach.html">Contact</a>
 
         <button
           id="dm-toggle"
@@ -72,53 +68,94 @@
         </button>
       </nav>
     </header>
+    <!-- /layout:header -->
 
     <main class="container">
-      <h1>Welcome to my Projects Page!</h1>
-      <div>
-        <p>
-          In the world of computing, hands on experience is one of the best
-          educators. Unlike medicine, the tools required to experiment in
-          computing are significantly cheaper, and not to mention the reduced
-          risk to life and limb.
-        </p>
-        <p>
-          I encourage everyone interested in computing to go to their nearest
-          e-recycle place, purchase a cheap computer to tinker with, and start
-          experimenting. The best way to learn is to do.
-        </p>
-        <p>
-          Incase you need a few ideas on where to start, or want to peruse some
-          of my past projects, feel free to look through the list below. If you
-          have any questions, or want to collaborate on a project, please email
-          me at outreach@rivercitycyber.com
-        </p>
+      <h1>Projects</h1>
+      <p class="lede">
+        Hands-on work I do outside my day job, plus guides I've written along
+        the way.
+      </p>
+
+      <div class="card-grid">
+        <article class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>PROJECT O.D.A.S.H.I.
+          </h2>
+          <p>
+            A Raspberry Pi 5 car head unit with Apple CarPlay and live vehicle
+            telemetry over OBD-II K-line and TPMS radio.
+          </p>
+          <a href="raspberrypi.html" class="boost-button">View Project</a>
+        </article>
+
+        <article class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>HOME LAB
+          </h2>
+          <p>
+            A VLAN-segmented network behind OPNsense, with an always-on
+            monitoring server and an on-demand Proxmox host.
+          </p>
+          <a href="homelab.html" class="boost-button">View Project</a>
+        </article>
+
+        <article class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>THIS WEBSITE
+          </h2>
+          <p>
+            A framework-free static site on Cloudflare Pages with hardened
+            security headers.
+          </p>
+          <a href="webpage.html" class="boost-button">View Project</a>
+        </article>
       </div>
-      <div class="projects">
-        <h2>Projects</h2>
-        <p>
-          Below are a list of projects and just incredibly useful computing
-          lessons I have learned over the years. If any topic intrigues you,
-          check it out!
-        </p>
-        <ul>
-          <li><a href="">Intro to Networking</a></li>
-          <li><a href="cyberIntro.html">Intro to Cybersecurity</a></li>
-          <li><a href="">Intro to Pentesting</a></li>
-          <li><a href="">Setting up a home lab and VM server</a></li>
-          <li><a href="create_webpage.html">Creating your own webpage</a></li>
-          <li>
-            <a href="tailscale.html">Tailscale: The Advantages of a Mesh VPN</a>
-          </li>
-          <li><a href="">Mikrotiks: The do-everything mini router</a></li>
-          <li><a href="">Mikrotiks: Installing Tailscale</a></li>
-        </ul>
+
+      <h2 class="section-display">GUIDES</h2>
+      <div class="card-grid">
+        <article class="data-card">
+          <h3 class="card-header">
+            <span class="card-indicator"></span>TAILSCALE ON MIKROTIK
+          </h3>
+          <p>
+            Planning and configuring a Layer 2 tunnel over Tailscale on a
+            MikroTik router.
+          </p>
+          <a href="tailscale.html" class="boost-button">Read Guide</a>
+        </article>
+
+        <article class="data-card">
+          <h3 class="card-header">
+            <span class="card-indicator"></span>GETTING STARTED IN CYBER
+          </h3>
+          <p>
+            The certifications, communities and resources I recommend to
+            people entering the field.
+          </p>
+          <a href="cyberIntro.html" class="boost-button">Read Guide</a>
+        </article>
       </div>
     </main>
 
+    <!-- layout:footer -->
     <footer>
-      <p>&copy; 2026 Connor G. | RiverCityCyber</p>
+      <p>&copy; 2026 Connor Geller | River City Cyber</p>
+      <p class="footer-links">
+        <a href="mailto:outreach@rivercitycyber.com">Email</a> &middot;
+        <a
+          href="https://www.linkedin.com/in/connor-g-638b93233"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        &middot;
+        <a href="https://github.com/RiverCityCyber" target="_blank" rel="noopener"
+          >GitHub</a
+        >
+      </p>
       <p class="footer-status">// SYSTEM STATUS: ONLINE</p>
     </footer>
+    <!-- /layout:footer -->
   </body>
 </html>

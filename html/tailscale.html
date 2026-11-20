@@ -3,11 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;"
-    />
-    <title>River City Cyber</title>
+    <title>Tailscale on MikroTik | Connor Geller</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,6 +14,7 @@
     <script src="../script.js" defer></script>
   </head>
   <body>
+    <!-- layout:header -->
     <header class="header-hud">
       <div class="header-hud__left">
         <a
@@ -35,36 +32,31 @@
         </a>
       </div>
 
-      <span class="header-hud__brand">River City Cyber</span>
+      <a href="/" class="header-hud__brand">River City Cyber</a>
 
       <nav class="header-hud__nav" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="outreach.html">Contact Me</a>
+        <a href="/">Home</a>
 
         <div class="dropdown">
-          <button
-            type="button"
-            onclick="window.location.href = 'projects.html'"
-          >
-            Projects
-          </button>
+          <a href="/html/projects.html" class="dropdown-toggle">Projects</a>
           <div class="dropdown-content">
-            <a href="raspberrypi.html">O.D.A.S.H.I.</a>
-            <a href="webpage.html">Webpage Dev Log</a>
-            <a href="tailscale.html">Tailscale Tutorials</a>
+            <a href="/html/raspberrypi.html">O.D.A.S.H.I.</a>
+            <a href="/html/homelab.html">Home Lab</a>
+            <a href="/html/webpage.html">This Website</a>
+            <a href="/html/tailscale.html" aria-current="page">Tailscale on MikroTik</a>
           </div>
         </div>
 
         <div class="dropdown">
-          <button type="button" onclick="window.location.href = 'bio.html'">
-            whoami
-          </button>
+          <a href="/html/bio.html" class="dropdown-toggle">About</a>
           <div class="dropdown-content">
-            <a href="about.html">About</a>
-            <a href="blog.html">Blog</a>
-            <a href="gallery.html">Gallery</a>
+            <a href="/html/bio.html">About Me</a>
+            <a href="/html/blog.html">Blog</a>
+            <a href="/html/cyberIntro.html">Getting Started in Cyber</a>
           </div>
         </div>
+
+        <a href="/html/outreach.html">Contact</a>
 
         <button
           id="dm-toggle"
@@ -76,70 +68,108 @@
         </button>
       </nav>
     </header>
+    <!-- /layout:header -->
 
     <main class="container">
-      <h1>Tailscale Tutorials</h1>
-      <h2>Intro</h2>
-      <p>
-        Tailscale is a Wireguard based VPN that focuses on simplicity and ease
-        of use. By creating secure VPN connections between user devices without
-        the need to open firewall ports, Tailscale is an incredibly
-        user-friendly VPN solution. The purpose of this tutorial is to highlight
-        one specific instance of Tailscale; installing it on a Mikrotik to allow
-        a L2 tunnel over Tailscale.
-      </p>
+      <h1>Tailscale on MikroTik</h1>
 
-      <h2>Why???</h2>
-      <p>
-        Because there are very rare instances where having two devices on
-        opposite sides of the Earth believe that they are directly connected
-        becomes useful. I cannot list them, but maybe you have found one. I know
-        its useful for specific switches in specific networks. But, on a broader
-        scale the first half of this tutorial is focused on getting Tailscale
-        installed on a Mikrotik, which many people have a use for. If you've
-        never messed around with a Mikrotik, I highly encourage it. They are
-        shockingly powerful little routers!
-      </p>
+      <div class="stack">
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>INTRO
+          </h2>
+          <p>
+            Tailscale is a WireGuard-based VPN that focuses on simplicity and
+            ease of use. By creating secure VPN connections between user
+            devices without the need to open firewall ports, Tailscale is an
+            incredibly user-friendly VPN solution. The purpose of this tutorial
+            is to highlight one specific use: installing it on a MikroTik
+            router to carry a Layer 2 tunnel over Tailscale.
+          </p>
+        </section>
 
-      <h2>Installing Tailscale on Mikrotik</h2>
-      <h3>Getting Started</h3>
-      <h4>The Paperwork Stuff</h4>
-      <p>
-        First, come up with a network diagram. You will need to plan out four
-        main subnets: your LAN, your dockers LAN, the Wireguard tunnel subnet,
-        and the EoIP tunnel subnet.
-      </p>
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>WHY BRIDGE LAYER 2?
+          </h2>
+          <p>
+            Occasionally two devices in different locations need to behave as
+            if they share the same physical segment, for example equipment that
+            only discovers or manages its peers over Layer 2. Bridging over
+            Tailscale provides that without exposing any ports to the internet.
+            The first half of this guide covers installing Tailscale on a
+            MikroTik, which is useful on its own; MikroTik routers offer a
+            remarkable amount of capability for their size and cost.
+          </p>
+        </section>
 
-      <h4>Prerequisites</h4>
-      <p>
-        Before you can install Tailscale on your Mikrotik, ensure you have the
-        following:
-      </p>
-      <ol>
-        <li>A Mikrotik (referrably RB??)</li>
-        <li>WinBox installed on a computer with an ethernet port</li>
-        <li>Internet connectivity for downloading Tailscale</li>
-        <li>Patience and time, this tutorial will take both</li>
-      </ol>
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>PLANNING
+          </h2>
+          <p>
+            First, come up with a network diagram. You will need to plan out
+            four main subnets: your LAN, your container network, the WireGuard
+            tunnel subnet, and the EoIP tunnel subnet.
+          </p>
+        </section>
 
-      <h4>Setting up the Mikrotik</h4>
-      <p>Initial install will go as follows:</p>
-      <ol>
-        <li>Install WinBox on your computer</li>
-        <li>Connect to the Mikrotik via ethernet cable to ether3</li>
-        <li>
-          Set up a Wireguard interface on the Mikrotik to use with Tailscale
-        </li>
-        <li>
-          Set up an EoIP tunnel to bridge the Wireguard interface to your LAN
-        </li>
-        <li>Set up routing and firewall rules as needed</li>
-      </ol>
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>PREREQUISITES
+          </h2>
+          <p>
+            Before you can install Tailscale on your MikroTik, ensure you have
+            the following:
+          </p>
+          <ol>
+            <li>A MikroTik router running RouterOS v7</li>
+            <li>WinBox installed on a computer with an Ethernet port</li>
+            <li>Internet connectivity for downloading Tailscale</li>
+            <li>Time to plan and test; this setup rewards patience</li>
+          </ol>
+        </section>
+
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>SETTING UP THE MIKROTIK
+          </h2>
+          <p>Initial install will go as follows:</p>
+          <ol>
+            <li>Install WinBox on your computer</li>
+            <li>Connect to the MikroTik via Ethernet cable to ether3</li>
+            <li>
+              Set up a WireGuard interface on the MikroTik to use with
+              Tailscale
+            </li>
+            <li>
+              Set up an EoIP tunnel to bridge the WireGuard interface to your
+              LAN
+            </li>
+            <li>Set up routing and firewall rules as needed</li>
+          </ol>
+        </section>
+      </div>
     </main>
 
+    <!-- layout:footer -->
     <footer>
-      <p>&copy; 2026 Connor G. | RiverCityCyber</p>
+      <p>&copy; 2026 Connor Geller | River City Cyber</p>
+      <p class="footer-links">
+        <a href="mailto:outreach@rivercitycyber.com">Email</a> &middot;
+        <a
+          href="https://www.linkedin.com/in/connor-g-638b93233"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        &middot;
+        <a href="https://github.com/RiverCityCyber" target="_blank" rel="noopener"
+          >GitHub</a
+        >
+      </p>
       <p class="footer-status">// SYSTEM STATUS: ONLINE</p>
     </footer>
+    <!-- /layout:footer -->
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>River City Cyber</title>
+    <title>Project O.D.A.S.H.I. | River City Cyber</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,6 +18,7 @@
     ></script>
   </head>
   <body>
+    <!-- layout:header -->
     <header class="header-hud">
       <div class="header-hud__left">
         <a
@@ -35,36 +36,31 @@
         </a>
       </div>
 
-      <span class="header-hud__brand">River City Cyber</span>
+      <a href="/" class="header-hud__brand">River City Cyber</a>
 
       <nav class="header-hud__nav" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="outreach.html">Contact Me</a>
+        <a href="/">Home</a>
 
         <div class="dropdown">
-          <button
-            type="button"
-            onclick="window.location.href = 'projects.html'"
-          >
-            Projects
-          </button>
+          <a href="/html/projects.html" class="dropdown-toggle">Projects</a>
           <div class="dropdown-content">
-            <a href="raspberrypi.html">O.D.A.S.H.I.</a>
-            <a href="webpage.html">Webpage Dev Log</a>
-            <a href="tailscale.html">Tailscale Tutorials</a>
+            <a href="/html/raspberrypi.html" aria-current="page">O.D.A.S.H.I.</a>
+            <a href="/html/homelab.html">Home Lab</a>
+            <a href="/html/webpage.html">This Website</a>
+            <a href="/html/tailscale.html">Tailscale on MikroTik</a>
           </div>
         </div>
 
         <div class="dropdown">
-          <button type="button" onclick="window.location.href = 'bio.html'">
-            whoami
-          </button>
+          <a href="/html/bio.html" class="dropdown-toggle">About</a>
           <div class="dropdown-content">
-            <a href="about.html">About</a>
-            <a href="blog.html">Blog</a>
-            <a href="gallery.html">Gallery</a>
+            <a href="/html/bio.html">About Me</a>
+            <a href="/html/blog.html">Blog</a>
+            <a href="/html/cyberIntro.html">Getting Started in Cyber</a>
           </div>
         </div>
+
+        <a href="/html/outreach.html">Contact</a>
 
         <button
           id="dm-toggle"
@@ -76,130 +72,260 @@
         </button>
       </nav>
     </header>
+    <!-- /layout:header -->
 
     <main class="container">
-      <h1>Raspberry Pi CAN-Bus &amp; Dash-Cam System</h1>
-      <div class="console">
-        <h2>Assembly Preview</h2>
-        <p class="subtitle">
-          Raspberry Pi 5 + Waveshare Touchscreen — drag to rotate, scroll to
-          zoom
-        </p>
-        <model-viewer
-          src="../images/pacura_v3.glb"
-          environment-image="neutral"
-          alt="3D model of Raspberry Pi 5 and Waveshare touchscreen assembly"
-          camera-controls
-          auto-rotate
-          auto-rotate-delay="1000"
-          rotation-per-second="20deg"
-          shadow-intensity="1"
-          exposure="0.9"
-          camera-orbit="25deg 75deg auto"
-          min-camera-orbit="auto auto 5%"
-          max-camera-orbit="auto auto 200%"
-        >
-        </model-viewer>
-      </div>
-      <section class="data-card">
-        <h2 class="card-header">
-          <span class="card-indicator"></span>PROJECT O.D.A.S.H.I.
-        </h2>
-        <p>
-          Project O.D.A.S.H.I. (Onboard Diagnostics Assistant Serving Helpful
-          Information) is a Raspberry Pi 5 based CAN-Bus/K-line reader and
-          dash-cam system. It is designed to be a custom solution for handling a
-          variety of smart-car features in a secure manner. The system utilizes
-          a Raspberry Pi 5, USB camera, buck converter, audio DAC, and CAN-Bus
-          interface to provide the following features:
-        </p>
-        <ol>
-          <li>
-            Car system diagnostics
-            <ul>
-              <li>Engine and system performance</li>
-              <li>Any error codes (such as check engine lights)</li>
-              <li>Oil, coolant, and battery levels</li>
-              <li>Other system data as needed</li>
-            </ul>
-          </li>
-          <li>Dashcam recording</li>
-          <li>Apple Carplay</li>
-          <li>Voice activated commands</li>
-          <li>Maintenance reminders based on odometer reading</li>
-        </ol>
-      </section>
+      <h1>Project O.D.A.S.H.I.</h1>
+      <p class="project-subtitle">
+        Onboard Diagnostics Assistant Serving Helpful Information
+      </p>
 
-      <section class="data-card">
-        <h2 class="card-header">
-          <span class="card-indicator"></span>BUILD YOUR OWN PI DASH-CAM
-        </h2>
-        <ol>
-          <li>
-            Install Raspberry Pi OS Lite (or distro of choice) on a Raspberry Pi
-          </li>
-          <li>Connect USB camera of choice (I am using a Logitech Webcam)</li>
-          <li>Update the system (sudo apt update &amp;&amp; upgrade)</li>
-          <li>
-            Run the following to show your webcam's information
-            <pre
-              class="lang-shell"
-            ><code class="lang-shell">v4l2-ctl --list-devices</code></pre>
-          </li>
-          <li>
-            Create the following script in /usr/local/bin/
-            <pre class="lang-shell"><code class="lang-shell">#!/bin/bash
+      <div class="stack">
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>OVERVIEW
+          </h2>
+          <p>
+            O.D.A.S.H.I. is a Raspberry Pi 5 head unit that replaces the factory
+            navigation screen in my 2005 Acura MDX. It runs Apple CarPlay and
+            overlays live vehicle data on screen: engine readings over OBD-II,
+            tire pressures read straight from the 315&nbsp;MHz TPMS sensors, and
+            the Pi's own health. A dashcam and a voice assistant come later.
+          </p>
+          <p>
+            Before I write any vehicle code, I bench test the whole system on a
+            12V bench supply, wired the same way it will be in the car. That way
+            each stage I install leaves the car drivable.
+          </p>
+          <p class="status-line">
+            <strong>STATUS:</strong> In progress &mdash; CarPlay running on the
+            Pi, building the 12V test bench. Updated November 2026.
+          </p>
+        </section>
+
+        <div class="console">
+          <h2>Assembly Preview</h2>
+          <p class="subtitle">
+            Raspberry Pi 5 + Waveshare Touchscreen — drag to rotate, scroll to
+            zoom
+          </p>
+          <model-viewer
+            src="../images/pacura_v3.glb"
+            environment-image="neutral"
+            alt="3D model of Raspberry Pi 5 and Waveshare touchscreen assembly"
+            loading="lazy"
+            camera-controls
+            auto-rotate
+            auto-rotate-delay="1000"
+            rotation-per-second="20deg"
+            shadow-intensity="1"
+            exposure="0.9"
+            camera-orbit="25deg 75deg auto"
+            min-camera-orbit="auto auto 5%"
+            max-camera-orbit="auto auto 200%"
+          >
+          </model-viewer>
+        </div>
+
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>HARDWARE
+          </h2>
+          <table>
+            <tr>
+              <th>Role</th>
+              <th>Part</th>
+            </tr>
+            <tr>
+              <td>Compute</td>
+              <td>Raspberry Pi 5, 8&nbsp;GB, active cooling</td>
+            </tr>
+            <tr>
+              <td>Storage</td>
+              <td>512&nbsp;GB NVMe SSD on a Pimoroni NVMe Base</td>
+            </tr>
+            <tr>
+              <td>Display</td>
+              <td>
+                Newhaven 7" IPS capacitive touch, 1024&times;600, sunlight
+                readable
+              </td>
+            </tr>
+            <tr>
+              <td>Car interface &amp; audio</td>
+              <td>CarPiHAT PRO 5 (ignition sense, power, DAC to aux input)</td>
+            </tr>
+            <tr>
+              <td>CarPlay</td>
+              <td>Carlinkit CPC200-CCPA running LIVI firmware</td>
+            </tr>
+            <tr>
+              <td>Vehicle data (planned)</td>
+              <td>ISO 9141-2 K-line OBD-II adapter, RTL-SDR for TPMS</td>
+            </tr>
+          </table>
+          <div class="project-tech">
+            STACK: Raspberry Pi OS &bull; LIVI &bull; Python &bull; Bash &bull;
+            OBD-II (K-line) &bull; rtl_433 &bull; Rust/Slint (LIVI UI)
+          </div>
+        </section>
+
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>ENGINEERING NOTES
+          </h2>
+          <ul class="notes-list">
+            <li>
+              <strong>K-line, not CAN.</strong> I planned the project around
+              CAN-Bus, but checking the OBD-II port with a multimeter showed
+              pin 7 at about 6V and pins 6 and 14 at 0V. That means the MDX
+              only speaks ISO 9141-2 K-line, so I changed the adapter choice
+              and the data plan.
+            </li>
+            <li>
+              <strong>Switched from react-carplay to LIVI.</strong> LIVI takes
+              telemetry from any process on the Pi over a local HTTP endpoint,
+              so my sensor code lives outside LIVI. That keeps my changes to
+              LIVI small and makes upstream updates easy to merge.
+            </li>
+            <li>
+              <strong>Power is the hard part.</strong> The Pi runs off a fused
+              constant 12V feed through the CarPiHAT, which senses the ignition
+              so the Pi can shut down cleanly. The display runs off the
+              accessory circuit through its own fused 12V&rarr;5V buck
+              converter.
+            </li>
+            <li>
+              <strong>The display must be readable in sunlight.</strong> Typical
+              Pi screens are unreadable in direct Florida sun, so screen
+              brightness decided which display I bought.
+            </li>
+          </ul>
+        </section>
+
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>TELEMETRY PIPELINE
+          </h2>
+          <p>
+            Small sender programs read each data source and POST JSON to LIVI,
+            which renders it on the dashboard:
+          </p>
+          <pre
+            class="lang-shell"
+          ><code class="lang-shell">curl -d '{"coolantC":88,"tirePressure":{"frontLeftKpa":241}}' \
+  http://localhost:4000/telemetry</code></pre>
+          <p>
+            LIVI already has fields for coolant, oil, transmission and intake
+            temperatures, throttle, battery voltage and all four tire
+            pressures. Engine load and the Pi's own stats need new fields,
+            which I'm adding in LIVI's Rust telemetry model and Slint
+            dashboard.
+          </p>
+        </section>
+
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>ROADMAP
+          </h2>
+          <ul class="roadmap">
+            <li data-state="done">Disconnect the factory navigation system</li>
+            <li data-state="done">
+              Choose a sunlight-readable touchscreen
+            </li>
+            <li data-state="done">
+              Install LIVI on the Pi and flash the CarPlay dongle
+            </li>
+            <li data-state="active">
+              Build the 12V test bench (fuse, CarPiHAT, buck converter,
+              display)
+            </li>
+            <li data-state="active">
+              <strong>Phase 1:</strong> boot-time sender for Pi temperature, CPU
+              and RAM, with a new LIVI dashboard panel
+            </li>
+            <li data-state="planned">
+              <strong>Phase 2:</strong> K-line OBD-II adapter, then coolant,
+              RPM, speed, throttle, engine load and voltage
+            </li>
+            <li data-state="planned">
+              <strong>Phase 3:</strong> tire pressures via RTL-SDR +
+              <code>rtl_433</code>
+            </li>
+            <li data-state="planned">
+              Transmission temperature via a thermistor and an ADS1115 ADC
+            </li>
+            <li data-state="planned">
+              Dashcam, steering-wheel buttons and an onboard voice assistant
+            </li>
+          </ul>
+          <a
+            href="https://github.com/RiverCityCyber/raspberry_pi_car"
+            target="_blank"
+            rel="noopener"
+            class="boost-button"
+            >View GitHub</a
+          >
+        </section>
+
+        <section class="data-card">
+          <h2 class="card-header">
+            <span class="card-indicator"></span>BUILD YOUR OWN PI DASH-CAM
+          </h2>
+          <ol>
+            <li>
+              Install Raspberry Pi OS Lite (or distro of choice) on a Raspberry
+              Pi
+            </li>
+            <li>Connect USB camera of choice (I am using a Logitech Webcam)</li>
+            <li>
+              Update the system (<code>sudo apt update &amp;&amp; sudo apt
+              upgrade</code>)
+            </li>
+            <li>
+              Run the following to show your webcam's information
+              <pre
+                class="lang-shell"
+              ><code class="lang-shell">v4l2-ctl --list-devices</code></pre>
+            </li>
+            <li>
+              Create the following script in /usr/local/bin/
+              <pre class="lang-shell"><code class="lang-shell">#!/bin/bash
 cd /home/pi/videos
 find /home/pi/videos -type f -name "*.mjpeg" -mtime +14 -delete
 
 ffmpeg -f v4l2 -input_format mjpeg -video_size 1280x720 -framerate 30 \
   -i /dev/video0 -c:v copy -f segment -segment_time 60 \
   -segment_atclocktime 1 -strftime 1 "dashcam_%Y%m%d_%H%M%S.mjpeg"</code></pre>
-          </li>
-          <li>Set the script to run on startup</li>
-          Now you have a fully functioning dashcam that should record all video
-          while running and store locally. To expand it to the full ODASHI
-          setup, follow the next step.
-        </ol>
-      </section>
-      <section class="data-card">
-        <h2 class="card-header">
-          <span class="card-indicator"></span>BUILD YOUR OWN ODASHI
-        </h2>
-        <li>
-          Install
-          <a
-            href="https://github.com/rhysmorgan134/react-carplay"
-            target="_blank"
-            rel="noopener"
-            >react-carplay</a
-          >
-        </li>
-        <li>
-          Attach a CarPlay converter from
-          <a
-            href="https://www.carlinkit.com/ccpa"
-            target="_blank"
-            rel="noopener"
-            >CarlinKit</a
-          >
-        </li>
-        <li>
-          Connect the Raspberry Pi to a touchscreen (I prefer the
-          <a
-            href="https://www.adafruit.com/product/2441"
-            target="_blank"
-            rel="noopener"
-            >Adafruit 3.5" TFT LCD</a
-          >)
-        </li>
-        <li>Start customizing to your need!</li>
-      </section>
+            </li>
+            <li>Set the script to run on startup</li>
+          </ol>
+          <p>
+            You now have a working dashcam that records whenever it is running
+            and stores the video locally.
+          </p>
+        </section>
+      </div>
     </main>
 
+    <!-- layout:footer -->
     <footer>
-      <p>&copy; 2026 Connor G. | RiverCityCyber</p>
+      <p>&copy; 2026 Connor Geller | River City Cyber</p>
+      <p class="footer-links">
+        <a href="mailto:outreach@rivercitycyber.com">Email</a> &middot;
+        <a
+          href="https://www.linkedin.com/in/connor-g-638b93233"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        &middot;
+        <a href="https://github.com/RiverCityCyber" target="_blank" rel="noopener"
+          >GitHub</a
+        >
+      </p>
       <p class="footer-status">// SYSTEM STATUS: ONLINE</p>
     </footer>
+    <!-- /layout:footer -->
   </body>
 </html>

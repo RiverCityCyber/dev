@@ -20,37 +20,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     toggle.addEventListener('click', function () {
-        const currentlyDark = document.body.classList.contains('dark-mode');
+        // With no saved choice, the page follows the OS theme, so "dark" is
+        // whatever is actually showing, not just whether the class is set.
+        const currentlyDark =
+            document.body.classList.contains('dark-mode') ||
+            (!document.body.classList.contains('light-mode') &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches);
         const newMode = currentlyDark ? 'light' : 'dark';
         applyMode(newMode);
         localStorage.setItem('mode', newMode);
     });
 });
 /* End Dark Mode Toggle */
-
-/* Skill Bar Animation */
-document.addEventListener('DOMContentLoaded', function () {
-    const skillFills = document.querySelectorAll('.skill-fill[data-width]');
-
-    if (!skillFills.length) return;
-
-    // Animate bars when they scroll into view, rather than all at once on load.
-    const observer = new IntersectionObserver(
-        (entries, obs) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const fill = entry.target;
-                    fill.style.width = fill.dataset.width;
-                    obs.unobserve(fill);
-                }
-            });
-        },
-        { threshold: 0.4 }
-    );
-
-    skillFills.forEach((fill) => observer.observe(fill));
-});
-/* End Skill Bar Animation */
 
 /* Code Block Copy Button */
 document.addEventListener('DOMContentLoaded', function () {

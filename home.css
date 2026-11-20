@@ -279,7 +279,7 @@ td {
   backdrop-filter: blur(10px);
 }
 
-.header-hud__brand {
+.header-hud .header-hud__brand {
   font-family: var(--font-heading);
   font-size: var(--text-lg);
   color: var(--text-heading);
@@ -315,6 +315,18 @@ td {
   text-shadow: var(--glow-strong);
 }
 
+/* Set by tools/sync_layout.py on the nav link for the current page */
+.header-hud__nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.header-hud a:focus-visible,
+.theme-toggle:focus-visible,
+.boost-button:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+}
+
 .github-link {
   display: inline-flex;
   align-items: center;
@@ -338,11 +350,8 @@ td {
   position: relative;
 }
 
-.dropdown > button {
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.dropdown-toggle::after {
+  content: " ▾";
 }
 
 .dropdown-content {
@@ -489,32 +498,227 @@ td {
   margin-bottom: var(--space-3);
 }
 
-/* -------------------------------------------------------------------------
-   8. SKILL BARS
-   ------------------------------------------------------------------------- */
-.skill-item + .skill-item {
-  margin-top: var(--space-4);
-}
-
-.skill-label {
-  display: flex;
-  justify-content: space-between;
+.status-line {
   font-size: var(--text-sm);
-  margin-bottom: var(--space-2);
+  color: var(--accent-2);
 }
 
-.skill-track {
-  height: 10px;
-  background: rgba(255, 255, 255, 0.08);
-  overflow: hidden;
+.notes-list {
+  padding-inline-start: var(--space-4);
 }
 
-.skill-fill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  box-shadow: var(--glow-subtle);
-  transition: width 1.5s ease-out;
+.notes-list li + li {
+  margin-top: var(--space-3);
+}
+
+/* Roadmap: data-state="done | active | planned" sets the marker */
+.roadmap {
+  list-style: none;
+}
+
+.roadmap li {
+  position: relative;
+  padding-inline-start: var(--space-5);
+}
+
+.roadmap li + li {
+  margin-top: var(--space-2);
+}
+
+.roadmap li::before {
+  position: absolute;
+  left: 0;
+  font-family: var(--font-mono);
+}
+
+.roadmap li[data-state="done"]::before {
+  content: "[x]";
+  color: var(--accent);
+}
+
+.roadmap li[data-state="active"]::before {
+  content: "[>]";
+  color: var(--accent-2);
+}
+
+.roadmap li[data-state="planned"]::before {
+  content: "[ ]";
+  opacity: 0.6;
+}
+
+/* -------------------------------------------------------------------------
+   8. HERO, SKILLS & PAGE CONTENT
+   ------------------------------------------------------------------------- */
+.hero {
+  max-width: 50rem;
+  margin-block: var(--space-6);
+}
+
+.hero h1 {
+  margin-block: var(--space-2) var(--space-3);
+}
+
+.hero__eyebrow {
+  font-size: var(--text-sm);
+  color: var(--accent-2);
+  letter-spacing: 2px;
+}
+
+.hero__summary,
+.lede {
+  font-size: var(--text-lg);
+  max-width: var(--prose-max-width);
+}
+
+.lede {
+  margin-bottom: var(--space-4);
+}
+
+.skill-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: var(--space-5);
+}
+
+.skill-group__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  color: var(--text-heading);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.skill-groups__note {
+  grid-column: 1 / -1;
+  font-size: var(--text-sm);
+  color: var(--accent-2);
+}
+
+.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag-list li {
+  font-size: var(--text-sm);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  border-radius: var(--radius-sm);
+}
+
+.portrait {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+  margin: 0 auto var(--space-4);
+}
+
+.post-meta {
+  font-size: var(--text-sm);
+  color: var(--accent-2);
+  margin-bottom: var(--space-3);
+}
+
+.data-card ol,
+.data-card ul:not(.tag-list):not(.roadmap) {
+  margin-block: var(--space-3);
+}
+
+kbd {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 0 var(--space-1);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+/* Home lab network diagram (inline SVG, themed through the same tokens) */
+.net-diagram {
+  margin-top: var(--space-3);
+  overflow-x: auto;
+}
+
+.net-diagram svg {
+  width: 100%;
+  min-width: 640px;
+  height: auto;
+}
+
+.net-diagram figcaption {
+  font-size: var(--text-sm);
+  margin-top: var(--space-3);
+}
+
+.net-box {
+  fill: var(--bg-surface);
+  stroke: var(--border-color);
+  stroke-width: 1.5;
+}
+
+.net-box--edge {
+  stroke: var(--accent-2);
+  stroke-width: 2.5;
+}
+
+.net-box--overlay {
+  stroke: var(--accent-2);
+  stroke-dasharray: 6 4;
+}
+
+.net-zone {
+  fill: color-mix(in srgb, var(--accent) 6%, transparent);
+  stroke: var(--border-color);
+  stroke-dasharray: 4 4;
+}
+
+.net-zone--lab {
+  fill: color-mix(in srgb, var(--accent-2) 8%, transparent);
+  stroke: var(--accent-2);
+}
+
+.net-link {
+  fill: none;
+  stroke: var(--border-color);
+  stroke-width: 2;
+}
+
+.net-overlay {
+  fill: none;
+  stroke: var(--accent-2);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+}
+
+.net-title {
+  fill: var(--text-heading);
+  font-family: var(--font-heading);
+  font-size: 14px;
+}
+
+.net-sub,
+.net-item {
+  fill: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 12px;
+}
+
+.net-item {
+  font-size: 13px;
+}
+
+.net-zone-label {
+  fill: var(--accent-2);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.table-total td {
+  font-weight: 700;
+  color: var(--text-heading);
 }
 
 /* -------------------------------------------------------------------------
@@ -653,6 +857,16 @@ footer {
   );
 }
 
+.footer-links {
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
+  text-align: center;
+}
+
+.footer-links a {
+  color: var(--accent-link);
+}
+
 .footer-status {
   font-size: var(--text-sm);
   color: var(--accent);
@@ -666,8 +880,22 @@ footer {
   text-align: center;
 }
 
+.mt-5 {
+  margin-top: var(--space-5);
+}
+
 .mt-7 {
   margin-top: var(--space-7);
+}
+
+.cluster--center {
+  justify-content: center;
+}
+
+/* Sections that follow a card grid or stack need breathing room */
+.card-grid + .section-display,
+.stack + .section-display {
+  margin-top: var(--space-5);
 }
 
 .visually-hidden {
